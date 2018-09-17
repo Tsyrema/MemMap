@@ -24,6 +24,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 
+
+import com.google.ar.core.examples.java.common.helpers.CameraPermissionHelper;
 import android.os.Bundle;
 import android.util.Size;
 import android.util.SparseIntArray;
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mArButton;
     //Create default screen to be the camera
-    //2 other intents (one is map and the other is...to be determined)
+    //2 other intents (one is map and the other is gallery)
 
     private Button button;
     private TextureView textureView;
@@ -284,11 +286,11 @@ public class MainActivity extends AppCompatActivity {
         if(textureView.isAvailable()) openCamera();
         else textureView.setSurfaceTextureListener(textureListener);
 
-//        // ARCore requires camera permission to operate.
-//        if (!CameraPermissionHelper.hasCameraPermission(this)) {
-//            CameraP.requestCameraPermission(this);
-//            return;
-//        }
+        // ARCore requires camera permission to operate.
+        if (!CameraPermissionHelper.hasCameraPermission(this)) {
+            CameraP.requestCameraPermission(this);
+            return;
+        }
     }
 
     @Override
