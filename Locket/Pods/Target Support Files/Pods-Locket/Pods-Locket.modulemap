@@ -1,0 +1,6 @@
+framework module Pods_Locket {
+  umbrella header "Pods-Locket-umbrella.h"
+
+  export *
+  module * { export * }
+}
