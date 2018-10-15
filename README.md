@@ -9,4 +9,4 @@ When the same location is visited, a live feed from the camera will show a float
 
 The following information may be altered.
 Database: Firebase or Core Data
-Software: AndroidStudio (Java) or XCode (Swift), AR
+Software: XCode 10 (Swift 4), ARKit
