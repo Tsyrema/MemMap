@@ -1,0 +1,6 @@
+framework module Pods_MemMap {
+  umbrella header "Pods-MemMap-umbrella.h"
+
+  export *
+  module * { export * }
+}
