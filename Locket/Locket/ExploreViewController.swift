@@ -6,6 +6,7 @@
 
 import ARKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverPresentationControllerDelegate {
     
@@ -33,6 +34,27 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
             view.showsFPS = true
             view.showsNodeCount = true
         }
+    }
+    
+    
+    @IBAction func LogoutButtonTapped(_ sender: UIButton) {
+        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertActionStyle.destructive){(action)in
+            do{
+                try Auth.auth().signOut()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let livc = storyboard.instantiateViewController(withIdentifier: "LogInVC")
+                self.present(livc, animated: true, completion: nil)
+            } catch {
+                print ("Error while signing out")
+                let alert = UIAlertController(title: "Sign out error", message: "Error while signing out", preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let signoutAlertSheet = UIAlertController(title: nil , message: nil , preferredStyle: .actionSheet)
+        signoutAlertSheet.addAction(signOutAction)
+        signoutAlertSheet.addAction(cancelAction)
+        self.present(signoutAlertSheet, animated: true, completion: nil)
     }
     
     
@@ -85,7 +107,7 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
     func downloadImage(url: URL) {
         print("Download Started")
         getDataFromUrl(url: url) { data, response, error in
-            guard let data = data, error == nil else { return }
+            guard let _ = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
 //            DispatchQueue.main.async() {

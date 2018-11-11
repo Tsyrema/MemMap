@@ -6,26 +6,33 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
-class MapViewController: UIViewController {
-
+class MapViewController: UIViewController, CLLocationManagerDelegate {
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.locationManager.delegate=self
+        self.locationManager.desiredAccuracy=kCLLocationAccuracyNearestTenMeters
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+      
         // Do any additional setup after loading the view.
-        let camera = GMSCameraPosition.camera(withLatitude:41.80 , longitude: -87.59, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 12.0)
+        
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
-        
+   
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
-//        41.7997° N, 87.5897° W
-        marker.position = CLLocationCoordinate2D(latitude:41.80 , longitude: -87.59)
-        marker.title = "Uncommon Hacks 2018"
-        marker.snippet = "Polsky Exchange"
+        marker.position = camera.target
+        //        marker.title = "Queens"
+        marker.snippet = "Current Location"
         marker.map = mapView
-    }
 
+    }
+    
     /*
     // MARK: - Navigation
 
