@@ -8,17 +8,20 @@ import UIKit
 import SceneKit
 import ARKit
 import AVFoundation
+import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 import CoreLocation
 import FirebaseAuth
 
 
-class CameraViewController: UIViewController, UITextFieldDelegate {
+class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
+    let locationManager = CLLocationManager()
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var swapButton: UIButton!
     @IBOutlet var addButton: UIButton!
+    @IBOutlet var logoutButton: UIButton!
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var previewView: UIView!
@@ -38,6 +41,11 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
     var storRef:StorageReference!
     var ref:DatabaseReference!
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleTextField.delegate = self
@@ -46,7 +54,6 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -108,13 +115,17 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         
         dump(capturedImage)
         
+        let text = titleTextField.text
         let storageRef = Storage.storage().reference().child("theImage.png")
         let uploadData = UIImagePNGRepresentation(capturedImage!)
+        let currentUser = Auth.auth().currentUser?.uid
+        
         storageRef.putData(uploadData!, metadata: nil)
         
-        ref = Database.database().reference()
-        ref?.child("User").setValue("user")
-        ref?.child("GeoLocation").setValue("41.80,-87.59")
+        ref = Database.database().reference().child(currentUser!)
+        ref?.child("Title").setValue(text)
+        ref?.child("Image").setValue(uploadData)
+        ref?.child("Location").setValue(""+self.locationManager.location?.coordinate.latitude+","+self.locationManager.location?.coordinate.longitude+"")
         
         storageRef.getMetadata { (metadata, error) in
             if error != nil {
@@ -218,7 +229,6 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             if let loc = locations.first {
                 print(loc.coordinate)
-                
             }
         }
         
@@ -229,16 +239,12 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        
-        
         // Handle location manager errors.
         func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
             //            self.locationManager.stopUpdatingLocation()
             print("Error: \(error)")
         }
     }
-    
-    
     // MARK: - ARSCNViewDelegate
     
     /*
@@ -249,9 +255,8 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
      return node
      }
      */
-    
-    
 }
+
 extension UIImage{
     func resizeImage() -> UIImage {
         //        let horizontalRatio = CGSize(width: 100, height: 100)

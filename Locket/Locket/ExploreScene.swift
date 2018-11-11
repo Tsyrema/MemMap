@@ -73,28 +73,6 @@ class ExploreScene: SKScene {
         }
     }
     
-    
-    //
-    //    var sight: SKSpriteNode!
-    //
-    //    override func didMove(to view: SKView) {
-    //        sight = SKSpriteNode()
-    //        addChild(sight)
-    //    }
-    
-    //    override func touchesBegan(_ touches: Set<UITouch>,
-    //                               with event: UIEvent?) {
-    //        let location = sight.position
-    //        let hitNodes = nodes(at: location)
-    //
-    //        var hitBug: SKNode?
-    //        for node in hitNodes {
-    //            if node.name == "heart" {
-    //                hitBug = node
-    //                break
-    //            }
-    //        }
-    
     let touchSound = SKAction.playSoundFileNamed("sprayFirebug", waitForCompletion: false)
     override func touchesBegan(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
@@ -120,10 +98,8 @@ class ExploreScene: SKScene {
                 let sequenceAction = SKAction.sequence([groupActions, remove])
                 //Excecute the actions
                 node.run(sequenceAction)
-                
             }
         }
-        
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

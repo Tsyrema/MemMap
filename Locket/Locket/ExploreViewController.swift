@@ -14,6 +14,8 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
     
     var url: String!
     
+    @IBOutlet var logoutButton: UIButton!
+    
     var sceneView: ARSKView!
     let image = UIImage()
 //    var imageView = UIImageView!
@@ -36,6 +38,10 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func LogoutButtonTapped(_ sender: UIButton) {
         let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertActionStyle.destructive){(action)in
@@ -60,7 +66,6 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
     
     func displayPhoto(shouldDisplay: Bool) {
         if shouldDisplay {
-            print("gjhghjghjgjgj")
             
             ////            self.presentViewController(vc, animated: true, completion: nil)
             //            let vc = storyboard.instantiateViewController(withIdentifier: "DisplayVC") as! DisplayPhotoViewController

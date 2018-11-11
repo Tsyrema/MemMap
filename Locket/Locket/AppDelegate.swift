@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyAEh19sc8dXPsNBn0aG2FMpwRHhOm6JheI")
         GMSPlacesClient.provideAPIKey("AIzaSyAEh19sc8dXPsNBn0aG2FMpwRHhOm6JheI")
-//        location()
+        
         if window?.rootViewController as? UITabBarController != nil {
             let tabBarController = window!.rootViewController as! UITabBarController
             tabBarController.selectedIndex = 1 // Opens the 1st Tab
@@ -30,8 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func location() {
-//        locationManager.delegate = self
-//        locationManager.allowsBackgroundLocationUpdates = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
