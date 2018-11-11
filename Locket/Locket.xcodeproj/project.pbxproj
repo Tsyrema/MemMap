@@ -17,6 +17,7 @@
 		9B8FE6BD202F8DBD00D03CF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8FE6BB202F8DBD00D03CF1 /* Main.storyboard */; };
 		9B8FE6C2202F8DBD00D03CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8FE6C0202F8DBD00D03CF1 /* LaunchScreen.storyboard */; };
 		9B8FE6CA202F8EA000D03CF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FE6C9202F8EA000D03CF1 /* MainViewController.swift */; };
+		E611BCB021962099009D2CB9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E611BCAF21962099009D2CB9 /* LoginViewController.swift */; };
 		E6F9C10B202FB592008FA9F4 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F9C10A202FB592008FA9F4 /* ExploreViewController.swift */; };
 		E6F9C10D202FB5A9008FA9F4 /* ExploreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F9C10C202FB5A9008FA9F4 /* ExploreScene.swift */; };
 		E6F9C117202FC85D008FA9F4 /* LocketScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E6F9C116202FC85D008FA9F4 /* LocketScene.sks */; };
@@ -46,6 +47,7 @@
 		9B8FE6C9202F8EA000D03CF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C9D9C575E5E042B6D7E1A44B /* Pods-Locket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locket.release.xcconfig"; path = "Pods/Target Support Files/Pods-Locket/Pods-Locket.release.xcconfig"; sourceTree = "<group>"; };
 		E3E1C4682BD1B59C15A2D617 /* Pods-Locket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Locket/Pods-Locket.debug.xcconfig"; sourceTree = "<group>"; };
+		E611BCAF21962099009D2CB9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E6F9C10A202FB592008FA9F4 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		E6F9C10C202FB5A9008FA9F4 /* ExploreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreScene.swift; sourceTree = "<group>"; };
 		E6F9C116202FC85D008FA9F4 /* LocketScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LocketScene.sks; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				9B8FE6C9202F8EA000D03CF1 /* MainViewController.swift */,
 				9B32E9E8202FB929003AB662 /* CameraViewController.swift */,
 				9B8FE6BB202F8DBD00D03CF1 /* Main.storyboard */,
+				E611BCAF21962099009D2CB9 /* LoginViewController.swift */,
 				E6F9C12B2030104F008FA9F4 /* DisplayPhotoViewController.swift */,
 				E6F9C10A202FB592008FA9F4 /* ExploreViewController.swift */,
 				E6F9C10C202FB5A9008FA9F4 /* ExploreScene.swift */,
@@ -175,7 +178,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "Madushani Lekam Wasam Liyanage";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					9B8FE6B1202F8DBD00D03CF1 = {
 						CreatedOnToolsVersion = 9.2;
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E611BCB021962099009D2CB9 /* LoginViewController.swift in Sources */,
 				E6F9C10B202FB592008FA9F4 /* ExploreViewController.swift in Sources */,
 				9B8FE6CA202F8EA000D03CF1 /* MainViewController.swift in Sources */,
 				9B32E9E9202FB929003AB662 /* CameraViewController.swift in Sources */,
@@ -461,7 +465,7 @@
 				INFOPLIST_FILE = Locket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MemMap;
+				PRODUCT_BUNDLE_IDENTIFIER = uncommonshacks.Locket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -480,7 +484,7 @@
 				INFOPLIST_FILE = Locket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MemMap;
+				PRODUCT_BUNDLE_IDENTIFIER = uncommonshacks.Locket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
