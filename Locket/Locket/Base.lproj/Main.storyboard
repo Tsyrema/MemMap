@@ -188,7 +188,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="rS4-3x-m47">
             <objects>
-                <tabBarController id="uWb-vx-NRW" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" id="uWb-vx-NRW" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="W21-bg-lQ7"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JrZ-zC-opt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -244,7 +244,7 @@
                                 </constraints>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="loginButtonTapped:" destination="eZI-0C-rox" eventType="touchUpInside" id="Ryy-Xs-qbw"/>
+                                    <action selector="loginButtonTapped:" destination="eZI-0C-rox" eventType="touchUpInside" id="Yag-0V-iiv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iW-cJ-iN2">
@@ -255,7 +255,7 @@
                                 </constraints>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <action selector="registerButtonTapped:" destination="eZI-0C-rox" eventType="touchUpInside" id="fru-0G-HRR"/>
+                                    <action selector="registerButtonTapped:" destination="eZI-0C-rox" eventType="touchUpInside" id="NwM-DA-0t5"/>
                                 </connections>
                             </button>
                         </subviews>
