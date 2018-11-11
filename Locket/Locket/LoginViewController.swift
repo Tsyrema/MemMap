@@ -21,7 +21,9 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        userNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         databaseRef = Database.database().reference()
         loginCheck()
         
@@ -37,6 +39,11 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
             self.present(tbvc, animated: true, completion: nil)
             
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {

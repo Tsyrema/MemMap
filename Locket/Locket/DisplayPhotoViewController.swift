@@ -10,6 +10,7 @@ class DisplayPhotoViewController: UIViewController {
     @IBOutlet weak var displayImageView: UIImageView!
     
     var message = false
+    @IBOutlet var logoutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
