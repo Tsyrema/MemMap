@@ -9,6 +9,10 @@ Copyright 2018 Google
 
 Copyright 2018 Google
 
+## FirebaseAuth
+
+Copyright 2018 Google
+
 ## FirebaseCore
 
 Copyright 2018 Google
