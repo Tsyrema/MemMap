@@ -11,24 +11,6 @@
     </dependencies>
     <scenes>
         <!--Create-->
-        <scene sceneID="tXr-a1-R10">
-            <objects>
-                <viewController id="BV1-FR-VrT" customClass="MainViewController" customModule="Locket" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.97743200323652057" green="1" blue="0.86809551500060766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </arscnView>
-                    <tabBarItem key="tabBarItem" title="Create" image="camera" id="9As-hv-haM"/>
-                    <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="sos-cM-0Qu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1463" y="1663"/>
-        </scene>
-        <!--Create-->
         <scene sceneID="ul5-e2-Arf">
             <objects>
                 <viewController id="gBK-XF-15s" customClass="CameraViewController" customModule="Locket" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,10 +49,10 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcL-oV-FNh">
-                                <rect key="frame" x="16" y="36" width="75" height="75"/>
+                                <rect key="frame" x="284" y="36" width="75" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="FRy-hs-58Y"/>
-                                    <constraint firstAttribute="width" constant="75" id="QiW-Br-IRh"/>
+                                    <constraint firstAttribute="width" constant="75" id="7eb-0s-NXJ"/>
+                                    <constraint firstAttribute="height" constant="75" id="q9T-Gj-QK5"/>
                                 </constraints>
                                 <state key="normal" image="add"/>
                                 <connections>
@@ -86,6 +68,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-4d-H4t">
+                                <rect key="frame" x="24" y="55" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="CNQ-cC-dTL"/>
+                                    <constraint firstAttribute="height" constant="50" id="IRI-aj-WDU"/>
+                                </constraints>
+                                <state key="normal" title="Logout Button" image="logout"/>
+                                <connections>
+                                    <action selector="LogoutButtonTapped:" destination="gBK-XF-15s" eventType="touchUpInside" id="en8-CO-aAz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -99,12 +92,14 @@
                             <constraint firstItem="7bw-wn-eI3" firstAttribute="bottom" secondItem="NK5-SZ-GRf" secondAttribute="bottom" constant="24" id="PMl-Pb-ALZ"/>
                             <constraint firstItem="7bw-wn-eI3" firstAttribute="trailing" secondItem="gWC-4l-zac" secondAttribute="trailing" id="QJ2-oh-7TY"/>
                             <constraint firstItem="NK5-SZ-GRf" firstAttribute="centerX" secondItem="7bw-wn-eI3" secondAttribute="centerX" id="SlS-sT-I8A"/>
-                            <constraint firstItem="JcL-oV-FNh" firstAttribute="top" secondItem="7bw-wn-eI3" secondAttribute="top" constant="16" id="WX4-xu-q6r"/>
+                            <constraint firstItem="0tN-4d-H4t" firstAttribute="top" secondItem="7bw-wn-eI3" secondAttribute="top" constant="35" id="WWJ-g0-bwD"/>
                             <constraint firstItem="euz-sL-Bl4" firstAttribute="top" secondItem="7bw-wn-eI3" secondAttribute="top" id="ebS-Q0-H5S"/>
+                            <constraint firstItem="0tN-4d-H4t" firstAttribute="leading" secondItem="7bw-wn-eI3" secondAttribute="leading" constant="24" id="fuX-LI-XOj"/>
+                            <constraint firstItem="7bw-wn-eI3" firstAttribute="trailing" secondItem="JcL-oV-FNh" secondAttribute="trailing" constant="16" id="mcH-Zr-Ppv"/>
                             <constraint firstItem="7bw-wn-eI3" firstAttribute="trailing" secondItem="euz-sL-Bl4" secondAttribute="trailing" id="mey-ZY-vub"/>
                             <constraint firstItem="euz-sL-Bl4" firstAttribute="leading" secondItem="7bw-wn-eI3" secondAttribute="leading" id="pUQ-D2-pnv"/>
+                            <constraint firstItem="JcL-oV-FNh" firstAttribute="top" secondItem="7bw-wn-eI3" secondAttribute="top" constant="16" id="ryC-JE-Zjg"/>
                             <constraint firstItem="gWC-4l-zac" firstAttribute="top" secondItem="7bw-wn-eI3" secondAttribute="top" id="tlE-tX-OhM"/>
-                            <constraint firstItem="JcL-oV-FNh" firstAttribute="leading" secondItem="7bw-wn-eI3" secondAttribute="leading" constant="16" id="v02-rz-QfM"/>
                             <constraint firstItem="7bw-wn-eI3" firstAttribute="trailing" secondItem="evQ-Gz-6J7" secondAttribute="trailing" constant="8" id="vXB-ap-LJw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7bw-wn-eI3"/>
@@ -130,7 +125,26 @@
                     <view key="view" contentMode="scaleToFill" id="bL4-Az-TYD" customClass="ARSKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUz-8u-pM6">
+                                <rect key="frame" x="24" y="55" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2qq-Ah-LDK"/>
+                                    <constraint firstAttribute="width" constant="50" id="OFK-Gs-vep"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="aC8-Qn-I1n"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="rKM-7B-G14"/>
+                                </constraints>
+                                <state key="normal" title="Logout Button" image="logout"/>
+                                <connections>
+                                    <action selector="LogoutButtonTapped:" destination="Ysx-bT-MAX" eventType="touchUpInside" id="Z3n-Oa-grG"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QUz-8u-pM6" firstAttribute="leading" secondItem="HgD-yl-gPL" secondAttribute="leading" constant="24" id="SVQ-VQ-rF0"/>
+                            <constraint firstItem="QUz-8u-pM6" firstAttribute="top" secondItem="HgD-yl-gPL" secondAttribute="top" constant="35" id="iRg-4B-OST"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HgD-yl-gPL"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Explore" image="explore" id="TIC-vQ-Q1Z"/>
@@ -209,7 +223,7 @@
         <!--Login View Controller-->
         <scene sceneID="m9m-KS-tup">
             <objects>
-                <viewController id="eZI-0C-rox" customClass="LoginViewController" customModule="Locket" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInVC" id="eZI-0C-rox" customClass="LoginViewController" customModule="Locket" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UnP-aI-8hu"/>
                         <viewControllerLayoutGuide type="bottom" id="iz4-CC-9MM"/>
@@ -294,6 +308,7 @@
         <image name="add" width="48" height="48"/>
         <image name="camera" width="25" height="25"/>
         <image name="explore" width="25" height="25"/>
+        <image name="logout" width="64" height="64"/>
         <image name="map" width="25" height="25"/>
         <image name="round_button" width="170" height="170"/>
         <image name="swap" width="48" height="48"/>

@@ -11,9 +11,10 @@ import AVFoundation
 import FirebaseStorage
 import FirebaseDatabase
 import CoreLocation
+import FirebaseAuth
 
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var swapButton: UIButton!
@@ -39,6 +40,7 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleTextField.delegate = self
         loadCamera()
     }
     
@@ -55,6 +57,15 @@ class CameraViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func takePhotoTapped(_ sender: UIButton) {
@@ -125,6 +136,27 @@ class CameraViewController: UIViewController {
         //        dump(location?.coordinate.longitude)
         
         
+    }
+    
+    
+    @IBAction func LogoutButtonTapped(_ sender: UIButton) {
+        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertActionStyle.destructive){(action)in
+            do{
+                try Auth.auth().signOut()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let livc = storyboard.instantiateViewController(withIdentifier: "LogInVC")
+                self.present(livc, animated: true, completion: nil)
+            } catch {
+                print ("Error while signing out")
+                let alert = UIAlertController(title: "Sign out error", message: "Error while signing out", preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let signoutAlertSheet = UIAlertController(title: nil , message: nil , preferredStyle: .actionSheet)
+        signoutAlertSheet.addAction(signOutAction)
+        signoutAlertSheet.addAction(cancelAction)
+        self.present(signoutAlertSheet, animated: true, completion: nil)
     }
     
     func getFrontCamera() -> AVCaptureDevice?{
