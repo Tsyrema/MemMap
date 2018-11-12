@@ -105,16 +105,16 @@ class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationMan
         dump(capturedImage)
         
         let text = titleTextField.text
-        let storageRef = Storage.storage().reference().child("theImage.png")
+        let storageRef = Storage.storage().reference().child("myImage.png")
         let uploadData = UIImagePNGRepresentation(capturedImage!)
         let currentUser = Auth.auth().currentUser?.uid
         
         storageRef.putData(uploadData!, metadata: nil)
         
-        ref = Database.database().reference().child(currentUser!)
+        ref = Database.database().reference().child(String(describing:currentUser))
         ref?.child("Title").setValue(text)
         ref?.child("Image").setValue(uploadData)
-        ref?.child("Location").setValue(""+self.locationManager.location?.coordinate.latitude+","+self.locationManager.location?.coordinate.longitude+"")
+        ref?.child("Location").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
         
         storageRef.getMetadata { (metadata, error) in
             if error != nil {

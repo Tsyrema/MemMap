@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Locket/RegisterViewController.swift"
+            timestampString = "563674868.827059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "RegisterViewController"
+            landmarkType = "3">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Locket.RegisterViewController.passwordTextField.getter : weak Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "Locket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diannerobbi/MemMap/MemMap/Locket/Locket/RegisterViewController.swift"
+                  timestampString = "563668699.139017"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Locket.RegisterViewController.passwordTextField.setter : weak Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "Locket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diannerobbi/MemMap/MemMap/Locket/Locket/RegisterViewController.swift"
+                  timestampString = "563668699.15137"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Locket.RegisterViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Locket.RegisterViewController"
+                  moduleName = "Locket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diannerobbi/MemMap/MemMap/Locket/Locket/RegisterViewController.swift"
+                  timestampString = "563668699.155571"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "285">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Locket.RegisterViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Locket.RegisterViewController&gt;"
+                  moduleName = "Locket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diannerobbi/MemMap/MemMap/Locket/Locket/RegisterViewController.swift"
+                  timestampString = "563668699.158565"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
