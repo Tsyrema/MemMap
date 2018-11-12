@@ -48,7 +48,6 @@
                                     <action selector="takePhotoTapped:" destination="gBK-XF-15s" eventType="touchUpInside" id="UdT-st-tmh"/>
                                 </connections>
                             </button>
-
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcL-oV-FNh">
                                 <rect key="frame" x="284" y="36" width="75" height="75"/>
                                 <constraints>
@@ -60,7 +59,6 @@
                                     <action selector="addButtonTapped:" destination="gBK-XF-15s" eventType="touchUpInside" id="zpq-Bf-fis"/>
                                 </connections>
                             </button>
-
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="evQ-Gz-6J7">
                                 <rect key="frame" x="8" y="544" width="359" height="50"/>
                                 <constraints>
@@ -70,7 +68,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-4d-H4t">
                                 <rect key="frame" x="24" y="55" width="50" height="50"/>
                                 <constraints>
@@ -80,7 +77,6 @@
                                 <state key="normal" title="Logout Button" image="logout"/>
                                 <connections>
                                     <action selector="LogoutButtonTapped:" destination="gBK-XF-15s" eventType="touchUpInside" id="en8-CO-aAz"/>
-
                                 </connections>
                             </button>
                         </subviews>
@@ -237,9 +233,7 @@
         <!--Register View Controller-->
         <scene sceneID="m9m-KS-tup">
             <objects>
-                
                 <viewController storyboardIdentifier="RegisterVC" id="eZI-0C-rox" customClass="RegisterViewController" customModule="Locket" customModuleProvider="target" sceneMemberID="viewController">
-                
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UnP-aI-8hu"/>
                         <viewControllerLayoutGuide type="bottom" id="iz4-CC-9MM"/>
@@ -280,6 +274,9 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iW-cJ-iN2">
                                 <rect key="frame" x="147.5" y="370" width="80" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="CKy-dz-hCj"/>
                                     <constraint firstAttribute="height" constant="30" id="GMp-eV-M7q"/>
@@ -287,7 +284,6 @@
                                 <state key="normal" title="Register"/>
                                 <connections>
                                     <action selector="registerButtonTapped:" destination="eZI-0C-rox" eventType="touchUpInside" id="Wpb-tg-sx5"/>
-                                    
                                 </connections>
                             </button>
                         </subviews>
@@ -304,6 +300,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E3h-e8-WDg"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1lj-Pc-ZTY"/>
                     <connections>
                         <outlet property="emailTextField" destination="jbO-sT-YSY" id="ay9-yK-LfJ"/>
                         <outlet property="passwordTextField" destination="JL3-QF-rBm" id="mJk-LI-mHg"/>
@@ -314,10 +311,10 @@
             </objects>
             <point key="canvasLocation" x="-999" y="1012"/>
         </scene>
-        <!--Landing View Controller-->
+        <!--View Controller-->
         <scene sceneID="xia-bN-kG0">
             <objects>
-                <viewController id="o94-SU-cpX" customClass="LandingViewController" sceneMemberID="viewController">
+                <viewController id="o94-SU-cpX" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TMb-Vw-bqk"/>
                         <viewControllerLayoutGuide type="bottom" id="nnw-CZ-Ccd"/>
@@ -326,59 +323,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locket" translatesAutoresizingMaskIntoConstraints="NO" id="e9S-nf-L60">
-                                <rect key="frame" x="39.5" y="69" width="296" height="238"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locket" translatesAutoresizingMaskIntoConstraints="NO" id="e9S-nf-L60">
+                                <rect key="frame" x="39" y="63.5" width="297" height="240"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="296" id="EGW-KJ-NMU"/>
-                                    <constraint firstAttribute="height" constant="238" id="oFQ-zm-dVx"/>
+                                    <constraint firstAttribute="height" constant="240" id="Ass-R3-hge"/>
+                                    <constraint firstAttribute="width" constant="290" id="OkC-Dq-MkY"/>
+                                    <constraint firstAttribute="width" secondItem="e9S-nf-L60" secondAttribute="height" multiplier="295:238" id="j15-aJ-g3M"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gex-0E-YqB">
-                                <rect key="frame" x="147.5" y="507" width="80" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="YWd-h3-s5s"/>
-                                    <constraint firstAttribute="width" constant="80" id="kOz-yg-xki"/>
-                                </constraints>
+                                <rect key="frame" x="159" y="533.5" width="57" height="30"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-
-                                    <action selector="registerButtonTapped:" destination="o94-SU-cpX" eventType="touchUpInside" id="GnH-1A-rMM"/>
+                                    <segue destination="eZI-0C-rox" kind="presentation" id="nzd-b5-0Ua"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-Tn-IPW">
-                                <rect key="frame" x="179.5" y="459" width="16" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="UZQ-YQ-EB1"/>
-                                    <constraint firstAttribute="width" constant="16" id="gJL-4B-EUy"/>
-                                </constraints>
+                                <rect key="frame" x="179.5" y="478" width="16" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQO-QQ-VzT">
-                                <rect key="frame" x="147.5" y="397" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQO-QQ-VzT">
+                                <rect key="frame" x="148" y="413.5" width="79" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="ViC-vT-VBB"/>
-                                    <constraint firstAttribute="height" constant="30" id="rqo-wa-Cbt"/>
+                                    <constraint firstAttribute="width" secondItem="tQO-QQ-VzT" secondAttribute="height" multiplier="79:30" id="svx-Fj-ORS"/>
                                 </constraints>
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <action selector="loginButtonTapped:" destination="o94-SU-cpX" eventType="touchUpInside" id="HMJ-bE-5lL"/>
-
+                                    <segue destination="ehW-6D-ydY" kind="presentation" id="4qU-09-6qb"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memmap" translatesAutoresizingMaskIntoConstraints="NO" id="AeL-Ng-bQF">
+                                <rect key="frame" x="96" y="267.5" width="183" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="Pno-FW-yUq"/>
+                                    <constraint firstAttribute="width" constant="183" id="k6O-EY-gwa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XVW-Tn-IPW" firstAttribute="top" secondItem="tQO-QQ-VzT" secondAttribute="bottom" constant="32" id="0kP-qk-xtg"/>
-                            <constraint firstItem="tQO-QQ-VzT" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="FD4-iS-PG0"/>
-                            <constraint firstItem="Gex-0E-YqB" firstAttribute="top" secondItem="XVW-Tn-IPW" secondAttribute="bottom" constant="27" id="GDB-YB-II4"/>
-                            <constraint firstItem="e9S-nf-L60" firstAttribute="top" secondItem="TMb-Vw-bqk" secondAttribute="bottom" constant="49" id="Qtn-3s-RBs"/>
-                            <constraint firstItem="Gex-0E-YqB" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="Vh9-db-sB4"/>
-                            <constraint firstItem="tQO-QQ-VzT" firstAttribute="top" secondItem="e9S-nf-L60" secondAttribute="bottom" constant="90" id="bAG-pQ-wH1"/>
-                            <constraint firstItem="e9S-nf-L60" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="dHx-h6-7HK"/>
-                            <constraint firstItem="XVW-Tn-IPW" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="jhp-O0-WsW"/>
+                            <constraint firstItem="tQO-QQ-VzT" firstAttribute="centerY" secondItem="5hA-Qo-Hyv" secondAttribute="centerY" constant="95" id="0PT-nT-fZU"/>
+                            <constraint firstItem="AeL-Ng-bQF" firstAttribute="leading" secondItem="1iX-kz-prv" secondAttribute="leading" constant="96" id="1vb-RU-y0s"/>
+                            <constraint firstItem="Gex-0E-YqB" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="2F4-4x-XTw"/>
+                            <constraint firstItem="tQO-QQ-VzT" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="Chm-Rs-r5X"/>
+                            <constraint firstItem="e9S-nf-L60" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="DB7-6b-qTR"/>
+                            <constraint firstItem="XVW-Tn-IPW" firstAttribute="centerY" secondItem="5hA-Qo-Hyv" secondAttribute="centerY" constant="155" id="ExU-3Q-CXf"/>
+                            <constraint firstItem="e9S-nf-L60" firstAttribute="centerY" secondItem="5hA-Qo-Hyv" secondAttribute="centerY" constant="-150" id="Mct-fp-ZXE"/>
+                            <constraint firstItem="XVW-Tn-IPW" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="dA0-h1-jw2"/>
+                            <constraint firstItem="AeL-Ng-bQF" firstAttribute="centerX" secondItem="5hA-Qo-Hyv" secondAttribute="centerX" id="gzy-mX-j91"/>
+                            <constraint firstItem="Gex-0E-YqB" firstAttribute="centerY" secondItem="5hA-Qo-Hyv" secondAttribute="centerY" constant="215" id="jXE-KR-gHr"/>
+                            <constraint firstItem="AeL-Ng-bQF" firstAttribute="centerY" secondItem="5hA-Qo-Hyv" secondAttribute="centerY" constant="6" id="tT4-bO-aCa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1iX-kz-prv"/>
                     </view>
@@ -390,7 +389,7 @@
         <!--Login View Controller-->
         <scene sceneID="UeV-Nf-c0f">
             <objects>
-                <viewController storyboardIdentifier="LogInVC" id="ehW-6D-ydY" customClass="LoginViewController" customModule="Locket" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInVC" id="ehW-6D-ydY" customClass="LoginViewController" customModule="Locket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e99-iG-ljH"/>
                         <viewControllerLayoutGuide type="bottom" id="JXC-Kb-Oxy"/>
@@ -431,6 +430,9 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzC-dx-gpW">
                                 <rect key="frame" x="147.5" y="370" width="80" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PgX-XJ-hNL"/>
                                     <constraint firstAttribute="width" constant="80" id="dPi-2u-eVO"/>
@@ -472,6 +474,7 @@
         <image name="locket" width="2048" height="1867"/>
         <image name="logout" width="64" height="64"/>
         <image name="map" width="25" height="25"/>
+        <image name="memmap" width="655" height="287"/>
         <image name="round_button" width="170" height="170"/>
         <image name="swap" width="48" height="48"/>
     </resources>
