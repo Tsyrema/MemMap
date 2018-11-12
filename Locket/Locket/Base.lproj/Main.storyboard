@@ -70,14 +70,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-<<<<<<< HEAD
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcL-oV-FNh">
-                                <rect key="frame" x="0.0" y="36" width="75" height="75"/>
-=======
 
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-4d-H4t">
                                 <rect key="frame" x="24" y="55" width="50" height="50"/>
->>>>>>> 354f1fdf4e84fb9b7cc198c3c619b8a67458c2a8
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="CNQ-cC-dTL"/>
                                     <constraint firstAttribute="height" constant="50" id="IRI-aj-WDU"/>
@@ -242,11 +237,9 @@
         <!--Register View Controller-->
         <scene sceneID="m9m-KS-tup">
             <objects>
-<<<<<<< HEAD
+                
                 <viewController storyboardIdentifier="RegisterVC" id="eZI-0C-rox" customClass="RegisterViewController" customModule="Locket" customModuleProvider="target" sceneMemberID="viewController">
-=======
-                <viewController storyboardIdentifier="LogInVC" id="eZI-0C-rox" customClass="LoginViewController" customModule="Locket" sceneMemberID="viewController">
->>>>>>> 354f1fdf4e84fb9b7cc198c3c619b8a67458c2a8
+                
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UnP-aI-8hu"/>
                         <viewControllerLayoutGuide type="bottom" id="iz4-CC-9MM"/>
@@ -293,11 +286,8 @@
                                 </constraints>
                                 <state key="normal" title="Register"/>
                                 <connections>
-<<<<<<< HEAD
                                     <action selector="registerButtonTapped:" destination="eZI-0C-rox" eventType="touchUpInside" id="Wpb-tg-sx5"/>
-=======
-                                    <action selector="loginButtonTapped:" destination="eZI-0C-rox" eventType="touchUpInside" id="Yag-0V-iiv"/>
->>>>>>> 354f1fdf4e84fb9b7cc198c3c619b8a67458c2a8
+                                    
                                 </connections>
                             </button>
                         </subviews>
@@ -336,6 +326,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locket" translatesAutoresizingMaskIntoConstraints="NO" id="e9S-nf-L60">
+                                <rect key="frame" x="39.5" y="69" width="296" height="238"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="EGW-KJ-NMU"/>
+                                    <constraint firstAttribute="height" constant="238" id="oFQ-zm-dVx"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gex-0E-YqB">
                                 <rect key="frame" x="147.5" y="507" width="80" height="30"/>
                                 <constraints>
@@ -344,7 +341,7 @@
                                 </constraints>
                                 <state key="normal" title="Register"/>
                                 <connections>
-<<<<<<< HEAD
+
                                     <action selector="registerButtonTapped:" destination="o94-SU-cpX" eventType="touchUpInside" id="GnH-1A-rMM"/>
                                 </connections>
                             </button>
@@ -358,13 +355,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locket" translatesAutoresizingMaskIntoConstraints="NO" id="e9S-nf-L60">
-                                <rect key="frame" x="39.5" y="69" width="296" height="238"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="296" id="EGW-KJ-NMU"/>
-                                    <constraint firstAttribute="height" constant="238" id="oFQ-zm-dVx"/>
-                                </constraints>
-                            </imageView>
+                            
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQO-QQ-VzT">
                                 <rect key="frame" x="147.5" y="397" width="80" height="30"/>
                                 <constraints>
@@ -374,9 +365,7 @@
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="o94-SU-cpX" eventType="touchUpInside" id="HMJ-bE-5lL"/>
-=======
-                                    <action selector="registerButtonTapped:" destination="eZI-0C-rox" eventType="touchUpInside" id="NwM-DA-0t5"/>
->>>>>>> 354f1fdf4e84fb9b7cc198c3c619b8a67458c2a8
+
                                 </connections>
                             </button>
                         </subviews>
@@ -480,11 +469,8 @@
         <image name="add" width="48" height="48"/>
         <image name="camera" width="25" height="25"/>
         <image name="explore" width="25" height="25"/>
-<<<<<<< HEAD
         <image name="locket" width="2048" height="1867"/>
-=======
         <image name="logout" width="64" height="64"/>
->>>>>>> 354f1fdf4e84fb9b7cc198c3c619b8a67458c2a8
         <image name="map" width="25" height="25"/>
         <image name="round_button" width="170" height="170"/>
         <image name="swap" width="48" height="48"/>
