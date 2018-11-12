@@ -2,26 +2,23 @@
 //  CameraViewController.swift
 //  Locket
 //
-//  
+//
 
 import UIKit
 import SceneKit
 import ARKit
 import AVFoundation
-import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 import CoreLocation
 import FirebaseAuth
 
 
-class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
+class CameraViewController: UIViewController, UITextFieldDelegate {
     
-    let locationManager = CLLocationManager()
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var swapButton: UIButton!
     @IBOutlet var addButton: UIButton!
-    @IBOutlet var logoutButton: UIButton!
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var previewView: UIView!
@@ -41,11 +38,6 @@ class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationMan
     var storRef:StorageReference!
     var ref:DatabaseReference!
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleTextField.delegate = self
@@ -54,6 +46,7 @@ class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationMan
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,7 +79,7 @@ class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationMan
                     let cgImageRef = CGImage.init(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
                     
                     self.capturedImage = UIImage (cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
-              
+                    
                     self.capturedImage = self.capturedImage?.resizeImage()
                     self.tempImageView.image = self.capturedImage
                     self.tempImageView.isHidden = false
@@ -110,17 +103,18 @@ class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationMan
         
         dump(capturedImage)
         
+
         let text = titleTextField.text
         let storageRef = Storage.storage().reference().child("myImage.png")
+
         let uploadData = UIImagePNGRepresentation(capturedImage!)
-        let currentUser = Auth.auth().currentUser?.uid
-        
         storageRef.putData(uploadData!, metadata: nil)
         
         ref = Database.database().reference().child(String(describing:currentUser))
         ref?.child("Title").setValue(text)
         ref?.child("Image").setValue(uploadData)
         ref?.child("Location").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
+
         
         storageRef.getMetadata { (metadata, error) in
             if error != nil {
@@ -224,6 +218,7 @@ class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationMan
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             if let loc = locations.first {
                 print(loc.coordinate)
+                
             }
         }
         
@@ -234,12 +229,16 @@ class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationMan
             }
         }
         
+        
+        
         // Handle location manager errors.
         func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
             //            self.locationManager.stopUpdatingLocation()
             print("Error: \(error)")
         }
     }
+    
+    
     // MARK: - ARSCNViewDelegate
     
     /*
@@ -250,8 +249,9 @@ class CameraViewController: UIViewController, UITextFieldDelegate, CLLocationMan
      return node
      }
      */
+    
+    
 }
-
 extension UIImage{
     func resizeImage() -> UIImage {
         //        let horizontalRatio = CGSize(width: 100, height: 100)
