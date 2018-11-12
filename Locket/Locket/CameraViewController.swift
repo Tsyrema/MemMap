@@ -63,11 +63,6 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
     @IBAction func takePhotoTapped(_ sender: UIButton) {
         
         print("Tapped")
@@ -108,13 +103,18 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         
         dump(capturedImage)
         
-        let storageRef = Storage.storage().reference().child("theImage.png")
+
+        let text = titleTextField.text
+        let storageRef = Storage.storage().reference().child("myImage.png")
+
         let uploadData = UIImagePNGRepresentation(capturedImage!)
         storageRef.putData(uploadData!, metadata: nil)
         
-        ref = Database.database().reference()
-        ref?.child("User").setValue("user")
-        ref?.child("GeoLocation").setValue("41.80,-87.59")
+        ref = Database.database().reference().child(String(describing:currentUser))
+        ref?.child("Title").setValue(text)
+        ref?.child("Image").setValue(uploadData)
+        ref?.child("Location").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
+
         
         storageRef.getMetadata { (metadata, error) in
             if error != nil {
