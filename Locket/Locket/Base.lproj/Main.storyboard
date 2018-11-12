@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o94-SU-cpX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o94-SU-cpX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -315,6 +315,7 @@
         <scene sceneID="xia-bN-kG0">
             <objects>
                 <viewController id="o94-SU-cpX" sceneMemberID="viewController">
+
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TMb-Vw-bqk"/>
                         <viewControllerLayoutGuide type="bottom" id="nnw-CZ-Ccd"/>
@@ -335,7 +336,9 @@
                                 <rect key="frame" x="159" y="533.5" width="57" height="30"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
+
                                     <segue destination="eZI-0C-rox" kind="presentation" id="nzd-b5-0Ua"/>
+
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-Tn-IPW">
@@ -344,17 +347,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQO-QQ-VzT">
                                 <rect key="frame" x="148" y="413.5" width="79" height="30"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                 </accessibility>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQO-QQ-VzT">
+                                <rect key="frame" x="147.5" y="397" width="80" height="30"/>
+>>>>>>> f65d3ae9e673e529f390b057057e55d3d81f356c
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tQO-QQ-VzT" secondAttribute="height" multiplier="79:30" id="svx-Fj-ORS"/>
                                 </constraints>
                                 <state key="normal" title="Log In"/>
                                 <connections>
+<<<<<<< HEAD
                                     <segue destination="ehW-6D-ydY" kind="presentation" id="4qU-09-6qb"/>
+=======
+                                    <segue destination="ehW-6D-ydY" kind="show" id="StW-oZ-usj"/>
+>>>>>>> f65d3ae9e673e529f390b057057e55d3d81f356c
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memmap" translatesAutoresizingMaskIntoConstraints="NO" id="AeL-Ng-bQF">
@@ -381,10 +393,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1iX-kz-prv"/>
                     </view>
+                    <connections>
+                        <outlet property="LoginButton" destination="tQO-QQ-VzT" id="zRT-bR-Xab"/>
+                        <outlet property="RegisterButton" destination="Gex-0E-YqB" id="wBE-3n-Nlw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cW-GR-tbU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1711.2" y="727.28635682158927"/>
+            <point key="canvasLocation" x="-1842" y="661"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="UeV-Nf-c0f">
