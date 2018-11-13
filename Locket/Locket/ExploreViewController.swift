@@ -192,8 +192,8 @@ extension ExploreViewController: ARSKViewDelegate {
 //            imageView.contentMode = .scaleAspectFit
             downloadImage(url: url)
         }
-        let pic = SKSpriteNode(imageNamed: "heart")
-        pic.name = "heart"
+        let pic = SKSpriteNode(imageNamed: "smile")
+        pic.name = "smile"
         return pic
     }
     

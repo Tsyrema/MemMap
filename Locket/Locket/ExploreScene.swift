@@ -87,7 +87,7 @@ class ExploreScene: SKScene {
         // Get the first node (if any)
         if let node = hit.first {
             // Check if the node is a memory (remember that labels are also a node)
-            if node.name == "heart" {
+            if node.name == "smile" {
                 print ("touched")
                 let fadeOut = SKAction.fadeOut(withDuration: 0.5)
                 let remove = SKAction.removeFromParent()

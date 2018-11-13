@@ -20,7 +20,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
       
         // Do any additional setup after loading the view.
 
-        let camera = GMSCameraPosition.camera(withLatitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 12.0)
+        let camera = GMSCameraPosition.camera(withLatitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 18.0)
 
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
