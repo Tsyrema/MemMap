@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o94-SU-cpX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yaO-4h-IeI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C13-GV-rpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="1187"/>
+            <point key="canvasLocation" x="1738.4000000000001" y="1186.9565217391305"/>
         </scene>
         <!--Display Photo View Controller-->
         <scene sceneID="ayY-Q7-cV4">
@@ -181,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ak2-yj-p6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1969" y="1187"/>
+            <point key="canvasLocation" x="2908" y="1186.9565217391305"/>
         </scene>
         <!--Map-->
         <scene sceneID="aWL-I5-du4">
@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRM-Cr-nWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799.20000000000005" y="396.25187406296857"/>
+            <point key="canvasLocation" x="1738.4000000000001" y="396.25187406296857"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rS4-3x-m47">
@@ -228,7 +228,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eL4-jG-I9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-151" y="729"/>
+            <point key="canvasLocation" x="788" y="728.18590704647681"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="m9m-KS-tup">
@@ -243,7 +243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbO-sT-YSY">
-                                <rect key="frame" x="50" y="209" width="275" height="30"/>
+                                <rect key="frame" x="50" y="253" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="OsD-EO-JIr"/>
                                     <constraint firstAttribute="height" constant="30" id="zz2-P5-deX"/>
@@ -253,7 +253,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JL3-QF-rBm">
-                                <rect key="frame" x="50" y="259" width="275" height="30"/>
+                                <rect key="frame" x="50" y="303" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="Yhh-Mh-J1m"/>
                                     <constraint firstAttribute="height" constant="30" id="tL5-gb-aek"/>
@@ -263,7 +263,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QiP-Kv-sIC">
-                                <rect key="frame" x="50" y="159" width="275" height="30"/>
+                                <rect key="frame" x="50" y="203" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="DRy-c1-BPj"/>
                                     <constraint firstAttribute="height" constant="30" id="O0r-jV-Kud"/>
@@ -273,7 +273,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iW-cJ-iN2">
-                                <rect key="frame" x="147.5" y="370" width="80" height="30"/>
+                                <rect key="frame" x="147.5" y="414" width="80" height="30"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
                                 </accessibility>
@@ -309,12 +309,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="paH-tm-09h" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-999" y="1012"/>
+            <point key="canvasLocation" x="-60" y="1011.544227886057"/>
         </scene>
-        <!--View Controller-->
+        <!-- -->
         <scene sceneID="xia-bN-kG0">
             <objects>
-                <viewController id="o94-SU-cpX" sceneMemberID="viewController">
+                <viewController title=" " id="o94-SU-cpX" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TMb-Vw-bqk"/>
                         <viewControllerLayoutGuide type="bottom" id="nnw-CZ-Ccd"/>
@@ -327,7 +327,7 @@
                                 <rect key="frame" x="159" y="533.5" width="57" height="30"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="eZI-0C-rox" kind="presentation" id="nzd-b5-0Ua"/>
+                                    <segue destination="eZI-0C-rox" kind="show" id="fkM-Bf-T0d"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-Tn-IPW">
@@ -346,7 +346,7 @@
                                 </constraints>
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <segue destination="ehW-6D-ydY" kind="presentation" id="4qU-09-6qb"/>
+                                    <segue destination="ehW-6D-ydY" kind="show" id="Tes-r3-6iV"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memmap" translatesAutoresizingMaskIntoConstraints="NO" id="AeL-Ng-bQF">
@@ -381,10 +381,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1iX-kz-prv"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8Ye-0F-jxy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cW-GR-tbU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1842" y="661"/>
+            <point key="canvasLocation" x="-903.20000000000005" y="660.71964017991013"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="UeV-Nf-c0f">
@@ -399,7 +400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etd-On-HHc">
-                                <rect key="frame" x="50" y="209" width="275" height="30"/>
+                                <rect key="frame" x="50" y="253" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="649-8l-s9i"/>
                                     <constraint firstAttribute="height" constant="30" id="d51-GC-PHu"/>
@@ -409,7 +410,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hpq-kQ-MrI">
-                                <rect key="frame" x="50" y="259" width="275" height="30"/>
+                                <rect key="frame" x="50" y="303" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="F5R-7M-L2A"/>
                                     <constraint firstAttribute="width" constant="275" id="JtQ-fb-nL1"/>
@@ -419,7 +420,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ij5-bn-fwE">
-                                <rect key="frame" x="50" y="159" width="275" height="30"/>
+                                <rect key="frame" x="50" y="203" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="FfX-KL-MhI"/>
                                     <constraint firstAttribute="width" constant="275" id="Ue5-lw-xqd"/>
@@ -429,7 +430,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzC-dx-gpW">
-                                <rect key="frame" x="147.5" y="370" width="80" height="30"/>
+                                <rect key="frame" x="147.5" y="414" width="80" height="30"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
                                 </accessibility>
@@ -464,7 +465,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpx-f6-y6q" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-999" y="337"/>
+            <point key="canvasLocation" x="-60" y="336.88155922038982"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nlP-gK-NFO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yaO-4h-IeI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pEE-n6-lgl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o94-SU-cpX" kind="relationship" relationship="rootViewController" id="lFe-Cl-oW7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93d-4r-s5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1842.4000000000001" y="660.71964017991013"/>
         </scene>
     </scenes>
     <resources>
