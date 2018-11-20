@@ -19,12 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        GMSServices.provideAPIKey("AIzaSyAEh19sc8dXPsNBn0aG2FMpwRHhOm6JheI")
-        GMSPlacesClient.provideAPIKey("AIzaSyAEh19sc8dXPsNBn0aG2FMpwRHhOm6JheI")
+        
+        GMSServices.provideAPIKey("AIzaSyC9-50RnWve2aVMZsGjl580uvBcIu-iEuE")
+        GMSPlacesClient.provideAPIKey("AIzaSyC9-50RnWve2aVMZsGjl580uvBcIu-iEuE")
+        
         
         if window?.rootViewController as? UITabBarController != nil {
             let tabBarController = window!.rootViewController as! UITabBarController
-            tabBarController.selectedIndex = 1 // Opens the 1st Tab
+            tabBarController.selectedIndex = 2 // Opens the 1st Tab
         }
         return true
     }
