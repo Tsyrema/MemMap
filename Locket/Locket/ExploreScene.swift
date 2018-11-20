@@ -15,8 +15,9 @@ protocol DisplayPhotoDelegate {
 class ExploreScene: SKScene {
     
     var photoDelegate: DisplayPhotoDelegate?
-
-     var ref:DatabaseReference!
+    var photoData = [String]()
+    var ref:DatabaseReference!
+    var databaseHandle:DatabaseHandle!
     
     var sceneView: ARSKView {
         return view as! ARSKView
@@ -126,14 +127,26 @@ class ExploreScene: SKScene {
     func retrieveURLFromDatabase() {
         ref = Database.database().reference()
         
+        //***Robbi's addition
+        //retrieve posts and listen for changes
+        databaseHandle = ref?.child("users").observe(.childAdded , with: { (snapshot) in
+            let post = snapshot.value as? String
+            if let actualPost = post{
+                self.photoData.append(actualPost)
+                //show in a popup
+            }
+        }) //change to name of table, maybe user email or id
         
+        
+        
+        //***
         var newRef = ref.child("User").child("ImageLocation")
         
         
         newRef.observeSingleEvent(of: .value) { (snapshot) in
             print("------")
             print(snapshot)
-             print("-------")
+            print("-------")
         }
         //The user have to provide the user part so they can access it
        

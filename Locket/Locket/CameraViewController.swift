@@ -15,7 +15,7 @@ import FirebaseAuth
 
 
 class CameraViewController: UIViewController, UITextFieldDelegate {
-    
+    let locationManager = CLLocationManager()
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var swapButton: UIButton!
     @IBOutlet var addButton: UIButton!
@@ -113,8 +113,8 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         storageRef.putData(uploadData!, metadata: nil)
         
         ref = Database.database().reference()
-        ref?.child("User").setValue("user")
-        ref?.child("GeoLocation").setValue("41.80,-87.59")
+        ref?.child("User").setValue("user") //change to user information, maybe email or id
+        ref?.child("GeoLocation").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
         
         storageRef.getMetadata { (metadata, error) in
             if error != nil {
