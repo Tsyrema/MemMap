@@ -76,7 +76,7 @@
                                 </constraints>
                                 <state key="normal" title="Logout Button" image="logout"/>
                                 <connections>
-                                    <action selector="LogoutButtonTapped:" destination="gBK-XF-15s" eventType="touchUpInside" id="en8-CO-aAz"/>
+                                    <segue destination="yaO-4h-IeI" kind="presentation" id="gHt-BP-U0t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,7 +136,7 @@
                                 </constraints>
                                 <state key="normal" title="Logout Button" image="logout"/>
                                 <connections>
-                                    <action selector="LogoutButtonTapped:" destination="Ysx-bT-MAX" eventType="touchUpInside" id="Z3n-Oa-grG"/>
+                                    <segue destination="yaO-4h-IeI" kind="presentation" id="wuY-4K-kH5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -160,21 +160,28 @@
         <scene sceneID="ayY-Q7-cV4">
             <objects>
                 <viewController storyboardIdentifier="DisplayVC" modalPresentationStyle="overCurrentContext" id="aMi-Js-Y3Q" customClass="DisplayPhotoViewController" customModule="Locket" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HLd-SL-y6V">
+                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="HLd-SL-y6V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yu-w7-4Mg">
-                                <rect key="frame" x="26" y="106" width="322" height="257"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6yu-w7-4Mg">
+                                <rect key="frame" x="24" y="204" width="327" height="180"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="NlB-ay-2ke"/>
+                                    <constraint firstAttribute="width" secondItem="6yu-w7-4Mg" secondAttribute="height" multiplier="109:60" id="Qg5-g6-HEE"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Rl1-X7-Hhc"/>
+                                    <constraint firstAttribute="width" secondItem="6yu-w7-4Mg" secondAttribute="height" multiplier="109:60" id="T1P-Wu-qf7"/>
+                                    <constraint firstAttribute="width" constant="240" id="yNV-ux-AfX"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.19995719178082189" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6yu-w7-4Mg" firstAttribute="leading" secondItem="NH5-qf-IxP" secondAttribute="leading" id="3MC-5M-2NP"/>
-                            <constraint firstItem="NH5-qf-IxP" firstAttribute="trailing" secondItem="6yu-w7-4Mg" secondAttribute="trailing" id="FiV-SZ-tOI"/>
-                            <constraint firstItem="6yu-w7-4Mg" firstAttribute="top" secondItem="NH5-qf-IxP" secondAttribute="top" id="ScJ-lO-ycS"/>
-                            <constraint firstItem="NH5-qf-IxP" firstAttribute="bottom" secondItem="6yu-w7-4Mg" secondAttribute="bottom" id="hNQ-E2-S1v"/>
+                            <constraint firstItem="6yu-w7-4Mg" firstAttribute="top" secondItem="NH5-qf-IxP" secondAttribute="top" constant="140" id="9qG-Rb-PJi"/>
+                            <constraint firstItem="NH5-qf-IxP" firstAttribute="trailing" secondItem="6yu-w7-4Mg" secondAttribute="trailing" constant="24" id="aYd-JV-i8v"/>
+                            <constraint firstItem="6yu-w7-4Mg" firstAttribute="leading" secondItem="NH5-qf-IxP" secondAttribute="leading" constant="24" id="nTA-wH-9cy"/>
+                            <constraint firstItem="NH5-qf-IxP" firstAttribute="bottom" secondItem="6yu-w7-4Mg" secondAttribute="bottom" constant="205" id="y7l-4g-j5Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NH5-qf-IxP"/>
                     </view>
@@ -519,4 +526,7 @@
         <image name="round_button" width="170" height="170"/>
         <image name="swap" width="48" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wuY-4K-kH5"/>
+    </inferredMetricsTieBreakers>
 </document>
