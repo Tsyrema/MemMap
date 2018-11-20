@@ -349,6 +349,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQO-QQ-VzT">
                                 <rect key="frame" x="148" y="413.5" width="79" height="30"/>
+                                <color key="backgroundColor" red="0.99281628923558196" green="1" blue="0.9494648806292677" alpha="0.19995719178082189" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                 </accessibility>
