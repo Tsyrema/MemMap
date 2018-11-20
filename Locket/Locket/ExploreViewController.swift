@@ -13,6 +13,8 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
     var ref:DatabaseReference!
     
     var url: String!
+    var photoData = [String]()
+    var databaseHandle:DatabaseHandle!
     
     @IBOutlet var logoutButton: UIButton!
     
@@ -48,7 +50,7 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
             do{
                 try Auth.auth().signOut()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let livc = storyboard.instantiateViewController(withIdentifier: "LogInVC")
+                let livc = storyboard.instantiateViewController(withIdentifier: "LandingVC")
                 self.present(livc, animated: true, completion: nil)
             } catch {
                 print ("Error while signing out")
@@ -76,6 +78,20 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
                 //                if let navigator = navigationController {
                 
                 self.navigationController?.pushViewController(viewController, animated: true)
+                //***Robbi's addition
+                //retrieve posts and listen for changes
+                databaseHandle = ref?.child("users").observe(.childAdded , with: { (snapshot) in
+                    let post = snapshot.value as? String
+                    if let actualPost = post{
+                        self.photoData.append(actualPost)
+                        //show in a popup
+                        viewController.reloadInputViews()
+                    }
+                }) //change to name of table, maybe user email or id
+                
+                
+                
+                //***
                 //                }
             }
             //
