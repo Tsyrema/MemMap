@@ -271,7 +271,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QiP-Kv-sIC">
                                 <rect key="frame" x="50" y="203" width="275" height="30"/>
@@ -428,17 +428,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ij5-bn-fwE">
-                                <rect key="frame" x="50" y="203" width="275" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="FfX-KL-MhI"/>
-                                    <constraint firstAttribute="width" constant="275" id="Ue5-lw-xqd"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzC-dx-gpW">
                                 <rect key="frame" x="147.5" y="414" width="80" height="30"/>
@@ -457,13 +447,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ij5-bn-fwE" firstAttribute="top" secondItem="e99-iG-ljH" secondAttribute="bottom" constant="139" id="7fX-PD-fD9"/>
+                            <constraint firstItem="JXC-Kb-Oxy" firstAttribute="top" secondItem="qzC-dx-gpW" secondAttribute="bottom" constant="223" id="0sE-GC-67o"/>
                             <constraint firstItem="Hpq-kQ-MrI" firstAttribute="centerX" secondItem="DKi-hg-cjK" secondAttribute="centerX" id="CsA-NA-pwb"/>
                             <constraint firstItem="Hpq-kQ-MrI" firstAttribute="top" secondItem="etd-On-HHc" secondAttribute="bottom" constant="20" id="JBm-ib-9is"/>
                             <constraint firstItem="qzC-dx-gpW" firstAttribute="centerX" secondItem="DKi-hg-cjK" secondAttribute="centerX" id="OIY-Tj-ue2"/>
                             <constraint firstItem="qzC-dx-gpW" firstAttribute="top" secondItem="Hpq-kQ-MrI" secondAttribute="bottom" constant="81" id="fuF-a2-Y0o"/>
-                            <constraint firstItem="ij5-bn-fwE" firstAttribute="centerX" secondItem="DKi-hg-cjK" secondAttribute="centerX" id="mh2-48-iTT"/>
-                            <constraint firstItem="etd-On-HHc" firstAttribute="top" secondItem="ij5-bn-fwE" secondAttribute="bottom" constant="20" id="vUm-h2-52r"/>
                             <constraint firstItem="etd-On-HHc" firstAttribute="centerX" secondItem="DKi-hg-cjK" secondAttribute="centerX" id="w25-e1-f6e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nj3-Dr-Cb8"/>
@@ -471,7 +459,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="etd-On-HHc" id="YPT-rA-j4D"/>
                         <outlet property="passwordTextField" destination="Hpq-kQ-MrI" id="oEX-Ak-I8P"/>
-                        <outlet property="userNameTextField" destination="ij5-bn-fwE" id="ykM-Dw-IL6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpx-f6-y6q" sceneMemberID="firstResponder"/>
