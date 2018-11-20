@@ -76,7 +76,7 @@
                                 </constraints>
                                 <state key="normal" title="Logout Button" image="logout"/>
                                 <connections>
-                                    <segue destination="yaO-4h-IeI" kind="presentation" id="gHt-BP-U0t"/>
+                                    <action selector="LogoutButtonTapped:" destination="gBK-XF-15s" eventType="touchUpInside" id="UL1-EO-5B2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,7 +136,7 @@
                                 </constraints>
                                 <state key="normal" title="Logout Button" image="logout"/>
                                 <connections>
-                                    <segue destination="yaO-4h-IeI" kind="presentation" id="wuY-4K-kH5"/>
+                                    <action selector="LogoutButtonTapped:" destination="Ysx-bT-MAX" eventType="touchUpInside" id="MFf-Zk-Y4h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -149,6 +149,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DO5-BT-50Y"/>
                     <connections>
+                        <outlet property="logoutButton" destination="QUz-8u-pM6" id="uBx-Om-3Ev"/>
                         <segue destination="aMi-Js-Y3Q" kind="show" id="e4S-XC-sgI"/>
                     </connections>
                 </viewController>
@@ -480,7 +481,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nlP-gK-NFO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yaO-4h-IeI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LandingVC" automaticallyAdjustsScrollViewInsets="NO" id="yaO-4h-IeI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pEE-n6-lgl">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -526,7 +527,4 @@
         <image name="round_button" width="170" height="170"/>
         <image name="swap" width="48" height="48"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="wuY-4K-kH5"/>
-    </inferredMetricsTieBreakers>
 </document>

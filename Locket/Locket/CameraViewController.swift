@@ -144,7 +144,7 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
             do{
                 try Auth.auth().signOut()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let livc = storyboard.instantiateViewController(withIdentifier: "LogInVC")
+                let livc = storyboard.instantiateViewController(withIdentifier: "LandingVC")
                 self.present(livc, animated: true, completion: nil)
             } catch {
                 print ("Error while signing out")
