@@ -83,7 +83,7 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
                     let dataProvider = CGDataProvider.init(data: imageData! as CFData)
                     let cgImageRef = CGImage.init(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
                     
-                    self.capturedImage = UIImage (cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
+                    self.capturedImage = UIImage (cgImage: cgImageRef!, scale: 1.0, orientation: UIImage.Orientation.right)
                     
                     self.capturedImage = self.capturedImage?.resizeImage()
                     self.tempImageView.image = self.capturedImage
@@ -109,7 +109,7 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         dump(capturedImage)
         
         let storageRef = Storage.storage().reference().child("theImage.png")
-        let uploadData = UIImagePNGRepresentation(capturedImage!)
+        let uploadData = capturedImage!.pngData()
         storageRef.putData(uploadData!, metadata: nil)
         
         ref = Database.database().reference()
@@ -140,7 +140,7 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func LogoutButtonTapped(_ sender: UIButton) {
-        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertActionStyle.destructive){(action)in
+        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.destructive){(action)in
             do{
                 try Auth.auth().signOut()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

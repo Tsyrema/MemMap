@@ -53,7 +53,7 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
                 if let error = error {
                     print("User Login Error \(error.localizedDescription)")
                     let alert = UIAlertController(title: "Login Failed!", message: "Failed to Login. Please Check Your Email and Password!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default,handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     self.clearTextFields()
                 }
