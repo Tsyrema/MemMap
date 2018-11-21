@@ -108,25 +108,43 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         
         dump(capturedImage)
         
-        let storageRef = Storage.storage().reference().child("theImage.png")
+        let comment = titleTextField.text
+        let storageRef = Storage.storage().reference()
+        let databaseRef = Database.database().reference().child("Images")
         let uploadData = UIImagePNGRepresentation(capturedImage!)
+        let currentUser = Auth.auth().currentUser?.email
+        let geoLocation = "\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))"
         storageRef.putData(uploadData!, metadata: nil)
         
-        ref = Database.database().reference()
-        ref?.child("User").setValue("user") //change to user information, maybe email or id
-        ref?.child("GeoLocation").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
+        let upload : [String : Any] = ["user" : currentUser,
+                                       "comment" : comment,
+                                       "geoLocation" : geoLocation,
+                                       "imageData" : uploadData
+                                       ]
+        databaseRef.childByAutoId().setValue(upload)
+        let imageID = UUID.init().uuidString
+        let imageRef = storageRef.child("Images").child("\(imageID).png")
+        print("Image saved with name \(imageID)")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
         
-        storageRef.getMetadata { (metadata, error) in
-            if error != nil {
-                print("error")
-            }
-            else {
-                let urlUn = StorageMetadata.downloadURL(metadata!)
-                let url = urlUn()!.absoluteString
-                self.ref = Database.database().reference()
-                self.ref?.child("ImageLocation").setValue(url)
-            }
-        }
+        imageRef.putData(uploadData!)
+        
+//        ref = Database.database().reference()
+//        ref?.child("User").setValue("user") //change to user information, maybe email or id
+//        ref?.child("GeoLocation").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
+//
+//        storageRef.getMetadata { (metadata, error) in
+//            if error != nil {
+//                print("error")
+//            }
+//            else {
+//                let urlUn = StorageMetadata.downloadURL(metadata!)
+//                let url = urlUn()!.absoluteString
+//                self.ref = Database.database().reference()
+//                self.ref?.child("ImageLocation").setValue(url)
+//            }
+//        }
         tempImageView.isHidden = true
         previewView.isHidden = false
         addButton.isHidden = true

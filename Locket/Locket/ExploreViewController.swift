@@ -80,15 +80,25 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
                 self.navigationController?.pushViewController(viewController, animated: true)
                 //***Robbi's addition
                 //retrieve posts and listen for changes
-                databaseHandle = ref?.child("users").observe(.childAdded , with: { (snapshot) in
-                    let post = snapshot.value as? String
-                    if let actualPost = post{
-                        self.photoData.append(actualPost)
-                        //show in a popup
-                        viewController.reloadInputViews()
-                    }
-                }) //change to name of table, maybe user email or id
-                
+//                databaseHandle = ref?.child("users").observe(.childAdded , with: { (snapshot) in
+//                    let post = snapshot.value as? String
+//                    if let actualPost = post{
+//                        self.photoData.append(actualPost)
+//                        //show in a popup
+//                        viewController.reloadInputViews()
+//                    }
+//                }) //change to name of table, maybe user email or id
+                let databaseRef = Database.database().reference()
+//                databaseRef.child("Images").childByAutoId().observe(.childAdded, with: { (snapshot) in
+//                    let currentUser = snapshot.value?["user"]
+//                    let comment = snapshot.value!["comment"]
+//                    let geoLocation = snapshot.value!["geoLocation"]
+//                    let uploadData = snapshot.value!["imageData"]
+//                    
+//                    
+//                    self.photoData
+//                    databaseRef.childByAutoId().set
+//                    })
                 
                 
                 //***

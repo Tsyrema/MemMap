@@ -18,6 +18,7 @@ class DisplayPhotoViewController: UIViewController {
         displayImageView.layer.cornerRadius = 10
         displayImageView.layer.masksToBounds = true
         print(message)
+        
         // Do any additional setup after loading the view.
     }
 
