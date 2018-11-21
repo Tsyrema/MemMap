@@ -46,7 +46,7 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
     }
     
     @IBAction func LogoutButtonTapped(_ sender: UIButton) {
-        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertActionStyle.destructive){(action)in
+        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.destructive){(action)in
             do{
                 try Auth.auth().signOut()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
