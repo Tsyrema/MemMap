@@ -12,7 +12,6 @@ import FirebaseDatabase
 class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDelegate {
     
     
-    @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
    
@@ -21,7 +20,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
         databaseRef = Database.database().reference()
@@ -79,7 +77,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     func clearTextFields() {
         emailTextField.text = nil
         passwordTextField.text = nil
-        userNameTextField.text = nil
     }
     
 }

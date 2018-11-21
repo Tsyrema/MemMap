@@ -15,8 +15,7 @@ protocol DisplayPhotoDelegate {
 class ExploreScene: SKScene {
     
     var photoDelegate: DisplayPhotoDelegate?
-
-     var ref:DatabaseReference!
+    var ref:DatabaseReference!
     
     var sceneView: ARSKView {
         return view as! ARSKView
@@ -126,14 +125,13 @@ class ExploreScene: SKScene {
     func retrieveURLFromDatabase() {
         ref = Database.database().reference()
         
-        
         var newRef = ref.child("User").child("ImageLocation")
         
         
         newRef.observeSingleEvent(of: .value) { (snapshot) in
             print("------")
             print(snapshot)
-             print("-------")
+            print("-------")
         }
         //The user have to provide the user part so they can access it
        
