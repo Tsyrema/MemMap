@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        GMSServices.provideAPIKey("AIzaSyC9-50RnWve2aVMZsGjl580uvBcIu-iEuE")
-        GMSPlacesClient.provideAPIKey("AIzaSyC9-50RnWve2aVMZsGjl580uvBcIu-iEuE")
+        GMSServices.provideAPIKey("AIzaSyDW6dYq5qt2NToV4bsK4CQeu6r68kC8MA0")
+        GMSPlacesClient.provideAPIKey("AIzaSyDW6dYq5qt2NToV4bsK4CQeu6r68kC8MA0")
         
         
         if window?.rootViewController as? UITabBarController != nil {
