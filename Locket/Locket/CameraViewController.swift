@@ -110,23 +110,46 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         
         let storageRef = Storage.storage().reference().child("theImage.png")
         let uploadData = UIImagePNGRepresentation(capturedImage!)
+        let currentUser = Auth.auth().currentUser?.email
+        let geoLocation = "\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))"
+        let imageName = UIImagePNGRepresentation(capturedImage!)
         storageRef.putData(uploadData!, metadata: nil)
         
-        ref = Database.database().reference()
-        ref?.child("User").setValue("user") //change to user information, maybe email or id
-        ref?.child("GeoLocation").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
-        
-        storageRef.getMetadata { (metadata, error) in
-            if error != nil {
-                print("error")
-            }
-            else {
-                let urlUn = StorageMetadata.downloadURL(metadata!)
-                let url = urlUn()!.absoluteString
-                self.ref = Database.database().reference()
-                self.ref?.child("ImageLocation").setValue(url)
-            }
+        //******Robbi's addition
+        //create table for uploading image and data
+        let upload : [String : Any] = ["user" : currentUser,
+                                     "geoLocation" : geoLocation,
+                                     "imageName" : imageName]
+        let databaseRef = Database.database().reference()
+        let imageLocation = storageRef.child("Images")
+        databaseRef.child("Images").childByAutoId().setValue(upload)
+        //another way of uploading image data
+        let metaData = StorageMetadata()
+        if let imageData = UIImagePNGRepresentation(capturedImage!) {
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/png"
+            imageLocation.putData(imageData, metadata : metaData)
+        }else{
+            print("Image could not be converted to data")
         }
+        //***********
+        
+//        ref = Database.database().reference()
+        
+//        ref?.child("User").setValue("user") //change to user information, maybe email or id
+//        ref?.child("GeoLocation").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
+//
+//        storageRef.getMetadata { (metadata, error) in
+//            if error != nil {
+//                print("error")
+//            }
+//            else {
+//                let urlUn = StorageMetadata.downloadURL(metadata!)
+//                let url = urlUn()!.absoluteString
+//                self.ref = Database.database().reference()
+//                self.ref?.child("ImageLocation").setValue(url)
+//            }
+//        }
         tempImageView.isHidden = true
         previewView.isHidden = false
         addButton.isHidden = true

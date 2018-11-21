@@ -80,6 +80,13 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
                 self.navigationController?.pushViewController(viewController, animated: true)
                 //***Robbi's addition
                 //retrieve posts and listen for changes
+//                let databaseRef = Database.database().reference()
+//                databaseRef.child("Images").queryOrderedByKey().observe(.childAdded, with: {
+//                    snapshot in
+//                    let currentUser = snapshot.value!["user"]
+//                    let geoLocation = snapshot.value!["geoLocation"]
+//                    let imageName = snapshot.value!["imageName"]
+//                })
                 databaseHandle = ref?.child("users").observe(.childAdded , with: { (snapshot) in
                     let post = snapshot.value as? String
                     if let actualPost = post{
