@@ -204,7 +204,7 @@ extension ExploreViewController: ARSKViewDelegate {
     // attach a heart to anchor
     func view(_ view: ARSKView,
               nodeFor anchor: ARAnchor) -> SKNode? {
-        if let url = URL(string: "hhttps://firebasestorage.googleapis.com/v0/b/locketinfo.appspot.com/o/theImage.png?alt=media&token=6f01e52c-d00f-405d-aeb3-c2983461d6c8") {
+        if let url = URL(string: "https://firebasestorage.googleapis.com/v0/b/mymemmap.appspot.com/o/theImage.png?alt=media&token=6d460c22-a739-4044-9eba-549f641f8bbb") {
 //            imageView.contentMode = .scaleAspectFit
             downloadImage(url: url)
         }

@@ -116,7 +116,7 @@ class ExploreScene: SKScene {
             
             //            if self.nodeAtPoint(location) == self.WebButton{
 //            retrieveURLFromDatabase()
-            var url = "https://firebasestorage.googleapis.com/v0/b/locketinfo.appspot.com/o/theImage.png?alt=media&token=e68ec9c7-47e0-4117-9883-7f5ce07a8b08"
+            var url = "https://firebasestorage.googleapis.com/v0/b/mymemmap.appspot.com/o/theImage.png?alt=media&token=6d460c22-a739-4044-9eba-549f641f8bbb"
             UIApplication.shared.openURL(NSURL(string: url as! String)! as URL)
             
         }

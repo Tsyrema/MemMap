@@ -116,17 +116,17 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         ref?.child("User").setValue("user") //change to user information, maybe email or id
         ref?.child("GeoLocation").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
         
-        storageRef.getMetadata { (metadata, error) in
-            if error != nil {
-                print("error")
-            }
-            else {
-                let urlUn = StorageMetadata.downloadURL(metadata!)
-                let url = urlUn()!.absoluteString
-                self.ref = Database.database().reference()
-                self.ref?.child("ImageLocation").setValue(url)
-            }
-        }
+//        storageRef.getMetadata { (metadata, error) in
+//            if error != nil {
+//                print("error")
+//            }
+//            else {
+//                let urlUn = StorageMetadata.downloadURL(metadata!)
+//                let url = urlUn()!.absoluteString
+//                self.ref = Database.database().reference()
+//                self.ref?.child("ImageLocation").setValue(url)
+//            }
+//        }
         tempImageView.isHidden = true
         previewView.isHidden = false
         addButton.isHidden = true
