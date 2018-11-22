@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        GMSServices.provideAPIKey("AIzaSyAEh19sc8dXPsNBn0aG2FMpwRHhOm6JheI")
-        GMSPlacesClient.provideAPIKey("AIzaSyAEh19sc8dXPsNBn0aG2FMpwRHhOm6JheI")
+        GMSServices.provideAPIKey("AIzaSyCPS37ZKba1nv7VWBJM7XEpkRE0Fuasux4")
+        GMSPlacesClient.provideAPIKey("AIzaSyCPS37ZKba1nv7VWBJM7XEpkRE0Fuasux4")
         
         if window?.rootViewController as? UITabBarController != nil {
             let tabBarController = window!.rootViewController as! UITabBarController

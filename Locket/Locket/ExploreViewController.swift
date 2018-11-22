@@ -90,14 +90,13 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
 //                }) //change to name of table, maybe user email or id
                 let databaseRef = Database.database().reference()
                 databaseRef.child("Images").childByAutoId().observe(.childAdded, with: { (snapshot) in
-                    let currentUser = snapshot.value?["user"]
-                    let comment = snapshot.value!["comment"]
-                    let geoLocation = snapshot.value!["geoLocation"]
-                    let uploadData = snapshot.value!["imageData"]
+                    let currentUser = snapshot.value
+                    let comment = snapshot.value
+                    let geoLocation = snapshot.value
+                    let uploadData = snapshot.value
                     
                     
-                    self.photoData
-                    databaseRef.childByAutoId().set
+                    print("-----changes made to database----")
                     })
                 
                 

@@ -53,7 +53,7 @@ class RegisterViewController: UIViewController, UIAlertViewDelegate, UITextField
                     let postDict = ["name": name, "email": email] as [String:Any]
                     
                     let currentUser = Auth.auth().currentUser?.uid
-                    self.databaseRef.child("users").child(currentUser!).setValue(postDict)
+                    self.databaseRef.child("Users").child(currentUser!).setValue(postDict)
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")

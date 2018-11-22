@@ -5,6 +5,9 @@
 // 
 
 import UIKit
+import FirebaseStorage
+import FirebaseDatabase
+import FirebaseAuth
 
 class DisplayPhotoViewController: UIViewController {
     @IBOutlet weak var displayImageView: UIImageView!
@@ -18,7 +21,13 @@ class DisplayPhotoViewController: UIViewController {
         displayImageView.layer.cornerRadius = 10
         displayImageView.layer.masksToBounds = true
         print(message)
+        let storageRef = Storage.storage().reference().child("Images")
         
+        let databaseRef = Database.database().reference()
+        let imageName = Database.database().reference().child("Images").value(forKey: "title")
+        let imageData = storageRef.child("Images").child("\(imageName)")
+        var image : UIImage = UIImage(named: imageName as! String)!
+        displayImageView = UIImageView(image: image)
         // Do any additional setup after loading the view.
     }
 
