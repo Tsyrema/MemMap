@@ -45,7 +45,7 @@ class RegisterViewController: UIViewController, UIAlertViewDelegate, UITextField
                 if let error = error {
                     print("User Creating Error \(error.localizedDescription)")
                     let alert = UIAlertController(title: "Signup Failed!", message: "Failed to Register. Please Try Again!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default,handler: nil))
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     self.clearTextFields()
                 }

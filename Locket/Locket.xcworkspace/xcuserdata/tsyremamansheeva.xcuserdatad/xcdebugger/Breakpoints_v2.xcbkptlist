@@ -26,45 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Locket/LoginViewController.swift"
-            timestampString = "564518530.820225"
+            timestampString = "564443868.16781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "loginButtonTapped(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Locket.LoginViewController.loginButtonTapped(__C.UIButton) -&gt; ()"
-                  moduleName = "Locket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tsyremamansheeva/Projects/CS731%20Software%20Dev%20Practicum/MemMap/Locket/Locket/LoginViewController.swift"
-                  timestampString = "564518531.772969"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "872">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Locket.LoginViewController.loginButtonTapped(__C.UIButton) -&gt; ()"
-                  moduleName = "Locket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tsyremamansheeva/Projects/CS731%20Software%20Dev%20Practicum/MemMap/Locket/Locket/LoginViewController.swift"
-                  timestampString = "564518531.77852"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
