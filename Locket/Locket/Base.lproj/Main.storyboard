@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yaO-4h-IeI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yaO-4h-IeI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -166,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6yu-w7-4Mg">
-                                <rect key="frame" x="24" y="204" width="327" height="180"/>
+                                <rect key="frame" x="24" y="204" width="327" height="209"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="NlB-ay-2ke"/>
@@ -412,7 +412,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etd-On-HHc">
-                                <rect key="frame" x="50" y="253" width="275" height="30"/>
+                                <rect key="frame" x="50" y="203" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="649-8l-s9i"/>
                                     <constraint firstAttribute="height" constant="30" id="d51-GC-PHu"/>
@@ -422,7 +422,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hpq-kQ-MrI">
-                                <rect key="frame" x="50" y="303" width="275" height="30"/>
+                                <rect key="frame" x="50" y="253" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="F5R-7M-L2A"/>
                                     <constraint firstAttribute="width" constant="275" id="JtQ-fb-nL1"/>
@@ -432,7 +432,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzC-dx-gpW">
-                                <rect key="frame" x="147.5" y="414" width="80" height="30"/>
+                                <rect key="frame" x="147.5" y="364" width="80" height="30"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
                                 </accessibility>
@@ -448,10 +448,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JXC-Kb-Oxy" firstAttribute="top" secondItem="qzC-dx-gpW" secondAttribute="bottom" constant="223" id="0sE-GC-67o"/>
                             <constraint firstItem="Hpq-kQ-MrI" firstAttribute="centerX" secondItem="DKi-hg-cjK" secondAttribute="centerX" id="CsA-NA-pwb"/>
                             <constraint firstItem="Hpq-kQ-MrI" firstAttribute="top" secondItem="etd-On-HHc" secondAttribute="bottom" constant="20" id="JBm-ib-9is"/>
                             <constraint firstItem="qzC-dx-gpW" firstAttribute="centerX" secondItem="DKi-hg-cjK" secondAttribute="centerX" id="OIY-Tj-ue2"/>
+                            <constraint firstItem="etd-On-HHc" firstAttribute="top" secondItem="e99-iG-ljH" secondAttribute="bottom" constant="139" id="OLB-CB-L3i"/>
                             <constraint firstItem="qzC-dx-gpW" firstAttribute="top" secondItem="Hpq-kQ-MrI" secondAttribute="bottom" constant="81" id="fuF-a2-Y0o"/>
                             <constraint firstItem="etd-On-HHc" firstAttribute="centerX" secondItem="DKi-hg-cjK" secondAttribute="centerX" id="w25-e1-f6e"/>
                         </constraints>

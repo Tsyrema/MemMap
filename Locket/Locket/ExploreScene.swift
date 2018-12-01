@@ -22,7 +22,6 @@ class ExploreScene: SKScene {
     }
     
     var isWorldSetUp = false
-    
     var image = UIImage()
     
     
@@ -33,7 +32,7 @@ class ExploreScene: SKScene {
             else { return }
         // create a four-dimensional identity matrix. Rotation and scaling use the first three columns
         var translation = matrix_identity_float4x4
-        translation.columns.3.z = -0.3
+        translation.columns.3.z = -0.5
         // ARKit will place the anchor at the correct position in 3D space relative to the camera
         let transform = currentFrame.camera.transform * translation
         //add an anchor to the session
@@ -125,7 +124,7 @@ class ExploreScene: SKScene {
     func retrieveURLFromDatabase() {
         ref = Database.database().reference()
         
-        var newRef = ref.child("User").child("ImageLocation")
+        var newRef = ref.child("Users").child("ImageLocation")
         
         
         newRef.observeSingleEvent(of: .value) { (snapshot) in

@@ -80,7 +80,7 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
                 self.navigationController?.pushViewController(viewController, animated: true)
                 //***Robbi's addition
                 //retrieve posts and listen for changes
-                databaseHandle = ref?.child("users").observe(.childAdded , with: { (snapshot) in
+                databaseHandle = ref?.child("Users").observe(.childAdded , with: { (snapshot) in
                     let post = snapshot.value as? String
                     if let actualPost = post{
                         self.photoData.append(actualPost)
@@ -103,7 +103,7 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
     }
     
     func retrieveURLFromDatabase() {
-        ref = Database.database().reference().child("User").child("ImageLocation")
+        ref = Database.database().reference().child("Users").child("images")
         //The user have to provide the user part so they can access it
         Database.database().reference().child("User").child("ImageLocation").observeSingleEvent(of: .value, with: { (snapshot) in
             if let url = snapshot.value {

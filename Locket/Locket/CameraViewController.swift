@@ -115,9 +115,9 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         print("created image data")
         
         print("current user is \(currentUser!)")
-        let geoLocationLat = (locationManager.location?.coordinate.latitude.description)!
-        let geoLocationLong = (locationManager.location?.coordinate.longitude.description)!
-        let geoLocation = geoLocationLat + ", " + geoLocationLong
+        let geoLocationLat = (locationManager.location?.coordinate.latitude)!
+        let geoLocationLong = (locationManager.location?.coordinate.longitude)!
+        //let geoLocation = geoLocationLat + ", " + geoLocationLong
         let date = NSDate().description
         //        storageRef.putData(uploadData!, metadata: nil)
         var time = NSDate().timeIntervalSince1970 * 1000
@@ -127,7 +127,8 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         let upload = [  "title" : title,
                         "comment" : comment,
                         "date taken (UTC)" : date,
-                        "geoLocation" : geoLocation
+                        "geoLocationLat" : geoLocationLat,
+                        "geoLocationLong" : geoLocationLong
             ] as [String : Any]
         self.databaseRef.child("Users").child(currentUser!).child("images").child(imageID).setValue(upload)
         
