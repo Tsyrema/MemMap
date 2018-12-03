@@ -2,49 +2,55 @@
 //  ExploreViewController.swift
 //  Locket
 //
-//  
+//
 
 import ARKit
+import SpriteKit
 import FirebaseDatabase
 import FirebaseAuth
+import CoreLocation
 
-class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverPresentationControllerDelegate {
+class ExploreViewController: UIViewController, ARSKViewDelegate {
+
+    
+    @IBOutlet var sceneView: ARSKView!
     
     var ref:DatabaseReference!
-    
+
     var url: String!
     var photoData = [String]()
+    var databaseRef:DatabaseReference!
     var databaseHandle:DatabaseHandle!
-    
+    var locationArray = [dbObject]()
+
+
     @IBOutlet var logoutButton: UIButton!
-    
-    var sceneView: ARSKView!
+
+//    var sceneView: ARSKView!
+
     let image = UIImage()
 //    var imageView = UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieveURLFromDatabase()
+        databaseRef = Database.database().reference()
+        //retrieveURLFromDatabase()
         if let view = self.view as? ARSKView {
             let scene = ExploreScene(size: view.bounds.size)
-//            if let urlString = url {
-//                scene.url = urlString
-//            }
+
             sceneView = view
-            sceneView!.delegate = self
+            sceneView.delegate = self
+            //addTargetNodes()
+
             scene.scaleMode = .resizeFill
-            scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            //scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             view.presentScene(scene)
             view.showsFPS = true
             view.showsNodeCount = true
         }
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
+
+
     @IBAction func LogoutButtonTapped(_ sender: UIButton) {
         let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertActionStyle.destructive){(action)in
             do{
@@ -64,101 +70,35 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
         signoutAlertSheet.addAction(cancelAction)
         self.present(signoutAlertSheet, animated: true, completion: nil)
     }
-    
-    
-    func displayPhoto(shouldDisplay: Bool) {
-        if shouldDisplay {
-            
-            ////            self.presentViewController(vc, animated: true, completion: nil)
-            //            let vc = storyboard.instantiateViewController(withIdentifier: "DisplayVC") as! DisplayPhotoViewController
-            ////            let vc = DisplayPhotoViewController()
-            
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DisplayVC") as? DisplayPhotoViewController {
-                //                viewController.newsObj = newsObj
-                //                if let navigator = navigationController {
-                
-                self.navigationController?.pushViewController(viewController, animated: true)
-                //***Robbi's addition
-                //retrieve posts and listen for changes
-                databaseHandle = ref?.child("Users").observe(.childAdded , with: { (snapshot) in
-                    let post = snapshot.value as? String
-                    if let actualPost = post{
-                        self.photoData.append(actualPost)
-                        //show in a popup
-                        viewController.reloadInputViews()
-                    }
-                }) //change to name of table, maybe user email or id
-                
-                
-                
-                //***
-                //                }
-            }
-            //
-            //            let navVC = UINavigationController(rootViewController: ExploreViewController())
-            //            navVC.pushViewController(DisplayPhotoViewController(), animated: true)
-            //            self.present(navVC, animated: true, completion: nil)
-            //
-        }
-    }
-    
+
+
+
     func retrieveURLFromDatabase() {
-        ref = Database.database().reference().child("Users").child("images")
-        //The user have to provide the user part so they can access it
-        Database.database().reference().child("User").child("ImageLocation").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let url = snapshot.value {
-                print(url) // the url is the retrived value
-            
-//                self.getDataFromUrl(url: URL(string: url as! String)!, completion: {x,y,error in
-//                    if error != nil {
-//                        print(error)
-//                    }
-//                })
-            }
-        }, withCancel: nil)
-    }
-    
-    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
+
+        let currentUser = Auth.auth().currentUser?.uid
+        databaseHandle = databaseRef.child("Users").child(currentUser!).child("images").observe(.childAdded , with: { (snapshot) in
+            let imageData = snapshot.value as! [String: AnyObject]
+            let n = imageData["title"] as! String
+            let la = imageData["geoLocationLat"] as! CLLocationDegrees
+            let lo = imageData["geoLocationLong"] as! CLLocationDegrees
+            let clloc = CLLocation(latitude: la, longitude: lo)
+            let loc = dbObject(name: n, loc: clloc)
+
+            self.locationArray.append(loc)
+            print ("location array::::::::::",self.locationArray)
+        })
+
     }
 
-    
-    func downloadImage(url: URL) {
-        print("Download Started")
-        getDataFromUrl(url: url) { data, response, error in
-            guard let _ = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-//            DispatchQueue.main.async() {
-//                self.imageView.image = UIImage(data: data)
-//            }
-        }
+    struct dbObject{
+        let name: String
+        let loc: CLLocation
     }
 
-//    func downloadImage(url: URL) {
-//        print("Download Started")
-//        getDataFromUrl(url: url) { data, response, error in
-//            guard let data = data, error == nil else { return }
-//            print(response?.suggestedFilename ?? url.lastPathComponent)
-//            print("Download Finished")
-//            DispatchQueue.main.async() {
-//                self.imageView.image = UIImage(data: data)
-//            }
-//        }
-//    }
-//
-//    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            completion(data, response, error)
-//            }.resume()
-//    }
-    
     override var shouldAutorotate: Bool {
         return true
     }
-    
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
@@ -166,25 +106,24 @@ class ExploreViewController: UIViewController,  DisplayPhotoDelegate, UIPopoverP
             return .all
         }
     }
-    
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration()
-        
+
         sceneView?.session.run(configuration)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView?.session.pause()
     }
-}
-
-extension ExploreViewController: ARSKViewDelegate {
+    
+    // MARK: - ARSKViewDelegate
     func session(_ session: ARSession,
                  didFailWithError error: Error) {
         print("Session Failed - probably due to lack of camera access")
@@ -204,31 +143,41 @@ extension ExploreViewController: ARSKViewDelegate {
     // attach a heart to anchor
     func view(_ view: ARSKView,
               nodeFor anchor: ARAnchor) -> SKNode? {
-        if let url = URL(string: "https://firebasestorage.googleapis.com/v0/b/mymemmap.appspot.com/o/theImage.png?alt=media&token=6d460c22-a739-4044-9eba-549f641f8bbb") {
-//            imageView.contentMode = .scaleAspectFit
-            downloadImage(url: url)
-        }
-        let pic = SKSpriteNode(imageNamed: "smile")
-        pic.name = "smile"
+        
+        let pic = SKSpriteNode(imageNamed: "pin3")
+        pic.position = CGPoint(x: CGFloat(randomFloat(min: -10, max: 10)),y: CGFloat(randomFloat(min: -4, max: 5 )))
+//        pic.name = "pin3"
         return pic
     }
+
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //
-    //        if segue.identifier == "displayViewSegue" {
-    //            if let vc = segue.destination as? DisplayPhotoViewController {
-    //                vc.message = true
-    //            }
-    //        }
-    //    }
+    func addTargetNodes(){
+        retrieveURLFromDatabase()
+        for obj in locationArray{
+            print ("object::::::::", obj)
+            //let newNode = SKNode()
+            let pic = SKSpriteNode(imageNamed: "pin3")
+            pic.name = obj.name
+            pic.position = CGPoint(x: CGFloat(randomFloat(min: -10, max: 10)),y: CGFloat(randomFloat(min: -4, max: 5 )))
+            print("nodes added")
+            sceneView.scene!.addChild(pic)
+            //sceneView.scene.rootNode.addChildNode(pic)
+        }
+    }
     
+    //create random float between specified ranges
+    func randomFloat(min: Float, max: Float) -> Float {
+        return (Float(arc4random()) / 0xFFFFFFFF) * (max - min) + min
+    }
     
 }
 
 
+
+
 /*
  // MARK: - Navigation
- 
+
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
  // Get the new view controller using segue.destinationViewController.
