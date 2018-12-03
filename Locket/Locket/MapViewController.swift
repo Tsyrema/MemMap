@@ -23,7 +23,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         databaseRef = Database.database().reference()
         
         self.locationManager.delegate=self
-        self.locationManager.desiredAccuracy=kCLLocationAccuracyNearestTenMeters
+    self.locationManager.desiredAccuracy=kCLLocationAccuracyNearestTenMeters
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
       
@@ -38,21 +38,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         view = mapView
         
         // retrieve geoLocation fromdatabase
-        
         let currentUser = Auth.auth().currentUser?.uid
         databaseHandle = databaseRef.child("Users").child(currentUser!).child("images").observe(.childAdded , with: { (snapshot) in
-            print ("snapshot::::::::::",snapshot)
             let imageData = snapshot.value as! [String: AnyObject]
             let n = imageData["title"] as! String
             let la = imageData["geoLocationLat"] as! CLLocationDegrees
             let lo = imageData["geoLocationLong"] as! CLLocationDegrees
-            // check if marker exists
-            //            let isMarked = true
-            //            for marker in self.markers{
-            //                if marker.name != n{
-            //
-            //                }
-            //            }
             
             let position = CLLocationCoordinate2D(latitude: la, longitude: lo)
             let locationmarker = GMSMarker(position: position)
