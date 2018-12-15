@@ -19,18 +19,22 @@ protocol DisplayPhotoDelegate {
 class ExploreScene: SKScene {
     
     var photoDelegate: DisplayPhotoDelegate?
-//    var ref:DatabaseReference!
+
     var databaseRef:DatabaseReference!
     var databaseHandle:DatabaseHandle!
 //    var storageReference
-    var locationArray = [dbObject]()
+    static var locationArray = [dbObject]()
     
-    let touchSound = SKAction.playSoundFileNamed("sprayFirebug", waitForCompletion: false)
+    let touchSound = SKAction.playSoundFileNamed("sprayFirebug", waitForCompletion: true)
 
     var sceneView: ARSKView {
         return view as! ARSKView
     }
-    var myImageView = UIImageView()
+    
+    
+    @IBOutlet weak var myImageView: UIImageView!
+    
+    //var myImageView = UIImageView()
     
     var isWorldSetUp = false
     var image = UIImage()
@@ -44,15 +48,15 @@ class ExploreScene: SKScene {
     }
     
     // Adding a picture
-    private func setUpWorld() {
+    func setUpWorld() {
         //check whether the session has an initialized currentFrame
         guard let currentFrame = sceneView.session.currentFrame
             else { return }
         
-        //retrieveURLFromDatabase()
+        retrieveFromDatabase()
         
-        print("here::::::::::::::::::::::::", self.locationArray)
-        //for i in self.locationArray{
+        print("here::::::::::::::::::::::::", ExploreScene.locationArray)
+        for i in ExploreScene.locationArray{
              //Define 360º in radians
             let _180degrees = 1.0 * Float.pi
 
@@ -85,7 +89,7 @@ class ExploreScene: SKScene {
             sceneView.session.add(anchor: anchor)
             print("anchor added:::::::::::::::::")
         nodeCount += 1
-     //   }
+        }
         
         isWorldSetUp = true
     }
@@ -107,9 +111,9 @@ class ExploreScene: SKScene {
     // this is called every frame
     override func update(_ currentTime: TimeInterval) {
         if !isWorldSetUp {
-            for index in 1...4{
+            //for index in 1...4{
             setUpWorld()
-            }
+//            }
         }
         
         // Light Estimation. If it's dark add light
@@ -196,7 +200,7 @@ class ExploreScene: SKScene {
         }
     }
 
-    private func retrieveFromStorage(name : String){
+    func retrieveFromStorage(name : String){
         databaseRef = Database.database().reference()
         let currentUser = Auth.auth().currentUser?.uid
         let userRef = databaseRef.child("Users").child(currentUser!)
@@ -206,13 +210,13 @@ class ExploreScene: SKScene {
             if (error != nil) {
                 print(error)
             } else {
-                let myImage: UIImage! = UIImage(data: data!)
+                self.myImageView.image = UIImage(data: data!)
             }
         }
         
     }
     
-    private func retrieveURLFromDatabase() {
+    func retrieveFromDatabase() {
         databaseRef = Database.database().reference()
         let currentUser = Auth.auth().currentUser?.uid
         databaseHandle = databaseRef.child("Users").child(currentUser!).child("images").observe(.childAdded , with: { (snapshot) in
@@ -223,10 +227,10 @@ class ExploreScene: SKScene {
             let lo = imageData["geoLocationLong"] as! CLLocationDegrees
             let clloc = CLLocation(latitude: la, longitude: lo)
             let loc = dbObject(name: n, loc: clloc)
-            self.locationArray.append(loc)
+            ExploreScene.locationArray.append(loc)
             //            self.arrCount += 1
         })
-        //print("locArray:::::::::::::", self.locationArray)
+        print("locArray:::::::::::::", ExploreScene.locationArray)
     }
     
     struct dbObject{
