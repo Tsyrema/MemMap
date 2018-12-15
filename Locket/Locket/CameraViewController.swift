@@ -3,7 +3,6 @@
 //  Locket
 //
 //
-
 import UIKit
 import SceneKit
 import ARKit
@@ -36,11 +35,12 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
     
     
     var storRef:StorageReference!
-    var ref:DatabaseReference!
+    var databaseRef:DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleTextField.delegate = self
+        databaseRef = Database.database().reference()
         loadCamera()
     }
     
@@ -85,7 +85,7 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
                     
                     self.capturedImage = UIImage (cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     
-                    self.capturedImage = self.capturedImage?.resizeImage()
+                    //                    self.capturedImage = self.capturedImage?.resizeImage()
                     self.tempImageView.image = self.capturedImage
                     self.tempImageView.isHidden = false
                     self.swapButton.isHidden = true
@@ -108,25 +108,54 @@ class CameraViewController: UIViewController, UITextFieldDelegate {
         
         dump(capturedImage)
         
-        let storageRef = Storage.storage().reference().child("theImage.png")
+        let currentUser = Auth.auth().currentUser?.uid
+        let comment = titleTextField.text
+        let storageRef = Storage.storage().reference()
         let uploadData = UIImagePNGRepresentation(capturedImage!)
-        storageRef.putData(uploadData!, metadata: nil)
+        print("created image data")
         
-        ref = Database.database().reference()
-        ref?.child("User").setValue("user") //change to user information, maybe email or id
-        ref?.child("GeoLocation").setValue("\(String(describing: self.locationManager.location?.coordinate.latitude))"+",\(String(describing: self.locationManager.location?.coordinate.longitude))")
+        print("current user is \(currentUser!)")
+        let geoLocationLat = (locationManager.location?.coordinate.latitude)!
+        let geoLocationLong = (locationManager.location?.coordinate.longitude)!
+        //let geoLocation = geoLocationLat + ", " + geoLocationLong
+        let date = NSDate().description
+        //        storageRef.putData(uploadData!, metadata: nil)
+        var time = NSDate().timeIntervalSince1970 * 1000
+        let imageID = currentUser!.substring(to: currentUser!.index(currentUser!.startIndex, offsetBy: 5))+"\(time.hashValue)"
+        print(imageID)
+        let title = "\(imageID).png"
+        let upload = [  "title" : title,
+                        "comment" : comment,
+                        "date taken (UTC)" : date,
+                        "geoLocationLat" : geoLocationLat,
+                        "geoLocationLong" : geoLocationLong
+            ] as [String : Any]
+        self.databaseRef.child("Users").child(currentUser!).child("images").child(imageID).setValue(upload)
         
-        storageRef.getMetadata { (metadata, error) in
+        //uploading image to storage
+        let storageItem = storageRef.child(currentUser!).child("Images").child(title)
+        let uploadTask = storageItem.putData(uploadData!, metadata: nil)
+        print("Image saved with name \(title)")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
+        
+        storageItem.getMetadata { (metadata, error) in
             if error != nil {
-                print("error")
+                print(error)
             }
             else {
-                let urlUn = StorageMetadata.downloadURL(metadata!)
-                let url = urlUn()!.absoluteString
-                self.ref = Database.database().reference()
-                self.ref?.child("ImageLocation").setValue(url)
+                storageItem.downloadURL(completion: { (url, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    if url != nil{
+                        self.databaseRef?.child("Users").child(currentUser!).child("images").child(imageID).child("imageURL").setValue(url!.absoluteString)
+                    }
+                })
             }
         }
+        
         tempImageView.isHidden = true
         previewView.isHidden = false
         addButton.isHidden = true
@@ -265,5 +294,3 @@ extension UIImage{
         return newImage!
     }
 }
-
-

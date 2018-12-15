@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  Locket
 //
-//  
+//
 
 //import Foundation
 import UIKit
@@ -14,7 +14,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-   
     
     var databaseRef: DatabaseReference!
     
@@ -23,19 +22,8 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
         emailTextField.delegate = self
         passwordTextField.delegate = self
         databaseRef = Database.database().reference()
-        loginCheck()
     }
     
-    func loginCheck() {
-        if Auth.auth().currentUser != nil {
-            //            let tabs = UITabBarController()
-            //            tabs.viewControllers = [FreebiesViewController(), PostViewController(), SettingsViewController()]
-            //            self.present(tabs, animated: true, completion: nil)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")
-            self.present(tbvc, animated: true, completion: nil)
-        }
-    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -58,9 +46,9 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
                     self.clearTextFields()
                 }
                 else {
-                    
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")
+                    let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
+                    tbvc.selectedIndex = 1
                     let alertController = UIAlertController(title: "Login Successful!", message: nil, preferredStyle: .alert)
                     self.present(alertController, animated: true, completion: nil)
                     self.clearTextFields()

@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>604661464958-rio44tat08826cbjpb29aqg3a9skgu6b.apps.googleusercontent.com</string>
+	<string>358257940582-pamruh46bj5msmfg37o60tnl6ba0v8tl.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.604661464958-rio44tat08826cbjpb29aqg3a9skgu6b</string>
+	<string>com.googleusercontent.apps.358257940582-pamruh46bj5msmfg37o60tnl6ba0v8tl</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAEh19sc8dXPsNBn0aG2FMpwRHhOm6JheI</string>
+	<string>AIzaSyDW6dYq5qt2NToV4bsK4CQeu6r68kC8MA0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>604661464958</string>
+	<string>358257940582</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>uncommonshacks.Locket</string>
+	<string>ProjectMemMap</string>
 	<key>PROJECT_ID</key>
-	<string>locketinfo</string>
+	<string>mymemmap</string>
 	<key>STORAGE_BUCKET</key>
-	<string>locketinfo.appspot.com</string>
+	<string>mymemmap.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:604661464958:ios:06f922bc221fbd23</string>
+	<string>1:358257940582:ios:db5755e393d456e8</string>
 	<key>DATABASE_URL</key>
-	<string>https://locketinfo.firebaseio.com</string>
+	<string>https://mymemmap.firebaseio.com</string>
 </dict>
 </plist>
