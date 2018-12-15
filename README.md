@@ -4,7 +4,7 @@ Software dev practicum project
 
 /**
 ** Authors:    Dianne Robbi C. Dannang
-**             Tsyrema Lasarev
+**             Tsyrema Lazarev
 ** CS731 Software Development Practicum
 ** MemMap Project
 **/
