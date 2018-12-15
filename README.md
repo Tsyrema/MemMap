@@ -28,15 +28,31 @@ These floating objects, once tapped, will allow you to view the image you took p
 How to use:
 - Clone project
 - Run application on mobile device (iOS)
-- You can register and login to the application using an email/passcode combination.
+- You can register and login to the application using an email/passcode combination:
+
+<img src = "screenshots/login.PNG" width=150>
+
 - Once logged in, a three-tabbed view will welcome you. The default screen is the camera view, and two others 
 are the map view and an explore view.
+
+ <img src = "screenshots/create_view.PNG" width=150> <img src = "screenshots/map_view.PNG" width=150> 
+
 - On the camera view, you can take pictures as you wish and save them using the plus button on the top right corner
 of the screen, you can also add comments on the pictures you take before saving them.
+
+<img src = "screenshots/add_image.PNG" width=150>
+
 - Once you've saved pictures, you can visit the map view or explore view and see the new additions to the screens.
 On the map view, you will see new pins added on the location points where images have been taken.
 On the explore view, you will see floating AR objects where the images have been taken (if you're at the same location you took them).
+
+<img src = "screenshots/new_pin.PNG" width=150>
+
 - The floating AR objects, once tapped, will show you the images you took at that same spot.
+
+<img src = "screenshots/explore_view.PNG" width=150>
+
 - A log out button is present on the camera view and explore view if you wish to be logged out of the application for another user.
 
+<img src = "screenshots/signout.PNG" width=150>
 
