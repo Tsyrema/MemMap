@@ -19,27 +19,18 @@ protocol DisplayPhotoDelegate {
 class ExploreScene: SKScene {
     
     var photoDelegate: DisplayPhotoDelegate?
-
     var databaseRef:DatabaseReference!
     var databaseHandle:DatabaseHandle!
-//    var storageReference
     static var locationArray = [dbObject]()
-    
     let touchSound = SKAction.playSoundFileNamed("sprayFirebug", waitForCompletion: true)
-
     var sceneView: ARSKView {
         return view as! ARSKView
     }
-    
-    
+
     @IBOutlet weak var myImageView: UIImageView!
-    
-    //var myImageView = UIImageView()
     
     var isWorldSetUp = false
     var image = UIImage()
-
-//    var arrCount = 0
     let numberLabel = SKLabelNode(text: "0")
     var nodeCount = 0 {
         didSet{
@@ -49,13 +40,7 @@ class ExploreScene: SKScene {
     
     // Adding a picture
     func setUpWorld() {
-        //check whether the session has an initialized currentFrame
-//        guard let currentFrame = sceneView.session.currentFrame
-//            else { return }
-        
         retrieveFromDatabase()
-        
-        print("here::::::::::::::::::::::::", ExploreScene.locationArray)
         for i in 1...4{
              //Define 360º in radians
             let _180degrees = 1.0 * Float.pi
@@ -75,19 +60,11 @@ class ExploreScene: SKScene {
 
             // Combine the rotation and translation matrices
             let transform = simd_mul(rotation, translation)
-        
-      
-//        // create a four-dimensional identity matrix. Rotation and scaling use the first three columns
-//        var translation = matrix_identity_float4x4
-//        translation.columns.3.z = -1 - randomFloat(min: 0.0, max: 1)
-//
-//        let transform =
-//            currentFrame.camera.transform * translation
-        
+
             // Create an anchor
         let anchor = ARAnchor(name:"\(nodeCount)", transform: transform)
             sceneView.session.add(anchor: anchor)
-            print("anchor added:::::::::::::::::")
+            print("anchor added")
         nodeCount += 1
         }
         
@@ -107,13 +84,10 @@ class ExploreScene: SKScene {
         return (Float(arc4random()) / 0xFFFFFFFF) * (max - min) + min
     }
     
-    
     // this is called every frame
     override func update(_ currentTime: TimeInterval) {
         if !isWorldSetUp {
-            //for index in 1...4{
             setUpWorld()
-//            }
         }
         
         // Light Estimation. If it's dark add light
@@ -150,15 +124,6 @@ class ExploreScene: SKScene {
         let hit = nodes(at: location)
         // Get the first node (if any)
         if let node = hit.first {
-            // Check if the node is a memory (remember that labels are also a node)
-//            var hitBug: SKNode?
-//            for node in hit {
-//                if node.name == "bug" {
-//                    hitBug = node
-//                    break
-//                }
-//            }
-//
             if node.name == "\(nodeCount)" {
                 print ("touched")
                 let fadeOut = SKAction.fadeOut(withDuration: 0.5)
@@ -179,24 +144,13 @@ class ExploreScene: SKScene {
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("ended")
-        
-        
-        //        let vc = ExploreViewController()
-        //
-        ////        vc.performSegue(withIdentifier: "displayViewSegue", sender: nil)
-        //        vc.displayPhoto(shouldDisplay: true)
-        //               self.photoDelegate?.displayPhoto(shouldDisplay: true)
         nodeCount -= 1
         print ("node cont:::::::::", nodeCount)
         for touch in (touches ) {
             let location = touch.location(in: self)
             
-            
-            //            if self.nodeAtPoint(location) == self.WebButton{
-//            retrieveURLFromDatabase()
-            var url = "https://firebasestorage.googleapis.com/v0/b/mymemmap.appspot.com/o/azkGxMR3jhaTlALeLShAuhVYa563%2FImages%2FazkGx-6953890196988142930.png?alt=media&token=94a59a28-470e-433d-9af3-283cb17c80e7"
+            var url = "https://firebasestorage.googleapis.com/v0/b/mymemmap.appspot.com/o/azkGxMR3jhaTlALeLShAuhVYa563%2FImages%2FazkGx141989202011857332.png?alt=media&token=6786cd28-6ecf-4232-be9c-447875992caa"
             UIApplication.shared.openURL(NSURL(string: url as! String)! as URL)
-            
         }
     }
 
@@ -205,7 +159,7 @@ class ExploreScene: SKScene {
         let currentUser = Auth.auth().currentUser?.uid
         let userRef = databaseRef.child("Users").child(currentUser!)
         let storageRef = Storage.storage().reference()
-        let imageRef = storageRef.child(name)   //("azkGx8004133616199252354.png")
+        let imageRef = storageRef.child(name)
         storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
             if (error != nil) {
                 print(error)
@@ -213,7 +167,6 @@ class ExploreScene: SKScene {
                 self.myImageView.image = UIImage(data: data!)
             }
         }
-        
     }
     
     func retrieveFromDatabase() {
@@ -228,9 +181,7 @@ class ExploreScene: SKScene {
             let clloc = CLLocation(latitude: la, longitude: lo)
             let loc = dbObject(name: n, loc: clloc)
             ExploreScene.locationArray.append(loc)
-            //            self.arrCount += 1
         })
-        print("locArray:::::::::::::", ExploreScene.locationArray)
     }
     
     struct dbObject{

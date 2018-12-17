@@ -31,7 +31,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.locationManager.startUpdatingLocation()
         
         // Do any additional setup after loading the view.
-        
         let camera = GMSCameraPosition.camera(withLatitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 18.0)
         
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
@@ -41,7 +40,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         view = mapView
         
         // retrieve geoLocation fromdatabase
-        
         let currentUser = Auth.auth().currentUser?.uid
         databaseHandle = databaseRef.child("Users").child(currentUser!).child("images").observe(.childAdded , with: { (snapshot) in
             //print ("snapshot::::::::::",snapshot)
@@ -60,8 +58,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
     }
     
-    
-    
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
         print("tapped on marker")
@@ -74,17 +70,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         return true
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
