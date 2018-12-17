@@ -26,24 +26,19 @@ class ExploreViewController: UIViewController, ARSKViewDelegate {
 
     @IBOutlet var logoutButton: UIButton!
 
-//    var sceneView: ARSKView!
 
     let image = UIImage()
-//    var imageView = UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         databaseRef = Database.database().reference()
-        //retrieveURLFromDatabase()
         if let view = self.view as? ARSKView {
             let scene = ExploreScene(size: view.bounds.size)
 
             sceneView = view
             sceneView.delegate = self
-            //addTargetNodes()
 
             scene.scaleMode = .resizeFill
-            //scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             view.presentScene(scene)
             view.showsFPS = true
             view.showsNodeCount = true
@@ -71,24 +66,6 @@ class ExploreViewController: UIViewController, ARSKViewDelegate {
         self.present(signoutAlertSheet, animated: true, completion: nil)
     }
 
-
-
-    func retrieveURLFromDatabase() {
-
-        let currentUser = Auth.auth().currentUser?.uid
-        databaseHandle = databaseRef.child("Users").child(currentUser!).child("images").observe(.childAdded , with: { (snapshot) in
-            let imageData = snapshot.value as! [String: AnyObject]
-            let n = imageData["title"] as! String
-            let la = imageData["geoLocationLat"] as! CLLocationDegrees
-            let lo = imageData["geoLocationLong"] as! CLLocationDegrees
-            let clloc = CLLocation(latitude: la, longitude: lo)
-            let loc = dbObject(name: n, loc: clloc)
-
-            self.locationArray.append(loc)
-            print ("location array::::::::::",self.locationArray)
-        })
-
-    }
 
     struct dbObject{
         let name: String
@@ -146,23 +123,8 @@ class ExploreViewController: UIViewController, ARSKViewDelegate {
         
         let pic = SKSpriteNode(imageNamed: "pin3")
         pic.position = CGPoint(x: CGFloat(randomFloat(min: -10, max: 10)),y: CGFloat(randomFloat(min: -4, max: 5 )))
-//        pic.name = "pin3"
+        pic.name = "pin3"
         return pic
-    }
-
-    
-    func addTargetNodes(){
-        retrieveURLFromDatabase()
-        for obj in locationArray{
-            print ("object::::::::", obj)
-            //let newNode = SKNode()
-            let pic = SKSpriteNode(imageNamed: "pin3")
-            pic.name = obj.name
-            pic.position = CGPoint(x: CGFloat(randomFloat(min: -10, max: 10)),y: CGFloat(randomFloat(min: -4, max: 5 )))
-            print("nodes added")
-            sceneView.scene!.addChild(pic)
-            //sceneView.scene.rootNode.addChildNode(pic)
-        }
     }
     
     //create random float between specified ranges
