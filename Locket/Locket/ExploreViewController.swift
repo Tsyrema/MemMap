@@ -34,7 +34,6 @@ class ExploreViewController: UIViewController, ARSKViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         databaseRef = Database.database().reference()
-        //retrieveURLFromDatabase()
         if let view = self.view as? ARSKView {
             let scene = ExploreScene(size: view.bounds.size)
 

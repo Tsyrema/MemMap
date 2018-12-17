@@ -50,13 +50,13 @@ class ExploreScene: SKScene {
     // Adding a picture
     func setUpWorld() {
         //check whether the session has an initialized currentFrame
-        guard let currentFrame = sceneView.session.currentFrame
-            else { return }
+//        guard let currentFrame = sceneView.session.currentFrame
+//            else { return }
         
         retrieveFromDatabase()
         
         print("here::::::::::::::::::::::::", ExploreScene.locationArray)
-        for i in ExploreScene.locationArray{
+        for i in 1...4{
              //Define 360º in radians
             let _180degrees = 1.0 * Float.pi
 
